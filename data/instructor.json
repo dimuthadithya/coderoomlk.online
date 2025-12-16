@@ -1,0 +1,63 @@
+{
+  "name": "Dimuth Adithya",
+  "title": "Lead Instructor",
+  "image": "https://avatars.githubusercontent.com/u/119920915?v=4",
+  "company": {
+    "name": "Oxymai Pvt Ltd",
+    "role": "Full Stack Developer",
+    "url": "https://www.oxymai.com/"
+  },
+  "education": {
+    "institute": "SLIATE Kegalle",
+    "batch": "2020 Batch"
+  },
+  "bio": "🌱 Learning React.js, exploring modern web technologies.\r\n🔭 Enhancing skills with new tools.\r\n💬 Discuss trends, innovations, projects.",
+  "about": "Based in Kegalle, I am passionate about bridging the gap between theory and industry-grade application. Check out my work at dimuthadithya.me",
+  "stats": [
+    {
+      "label": "Experience",
+      "value": "6+ Years",
+      "icon": "FaChalkboardTeacher"
+    },
+    {
+      "label": "Followers",
+      "value": "63+",
+      "icon": "FaAward"
+    },
+    {
+      "label": "Projects",
+      "value": "42+",
+      "icon": "FaCode"
+    }
+  ],
+  "skills": [
+    "Full Stack Development",
+    "Chrome Extensions",
+    "React.js & Next.js",
+    "Modern Web Tech",
+    "System Design",
+    "Mentorship"
+  ],
+  "socials": [
+    {
+      "platform": "github",
+      "url": "https://github.com/dimuthadithya"
+    },
+    {
+      "platform": "linkedin",
+      "url": "https://www.linkedin.com/in/dimuth-adithya"
+    },
+    {
+      "platform": "medium",
+      "url": "https://medium.com/@dimuthadithya"
+    },
+    {
+      "platform": "youtube",
+      "url": "https://www.youtube.com/channel/UCUwhddEzMtZyjnEGcBOcrGA"
+    },
+    {
+      "platform": "twitter",
+      "url": "https://twitter.com/dimuthx353"
+    }
+  ]
+}

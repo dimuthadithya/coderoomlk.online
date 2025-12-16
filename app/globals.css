@@ -1,0 +1,32 @@
+@import 'tailwindcss';
+
+@plugin "daisyui" {
+  themes: all;
+}
+
+/* Ensure proper font variables from layout */
+:root {
+  --font-sans: var(--font-geist-sans);
+}
+
+body {
+  @apply bg-base-100 text-base-content antialiased font-sans;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Utilities using @apply for safe theme color access */
+.gradient-text {
+  @apply bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent box-decoration-clone;
+}
+
+.glass-card {
+  @apply bg-base-100/70 backdrop-blur-xl border border-base-content/10 shadow-xl;
+}
+
+.glow-card {
+  @apply transition-all duration-300 hover:shadow-lg hover:shadow-primary/20;
+}
+
+.gradient-bg {
+  @apply bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5 animate-pulse;
+}
