@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Marquee from "react-fast-marquee";
-import { FaQuoteLeft, FaGithub, FaTimes } from "react-icons/fa";
+import { FaQuoteLeft, FaGithub, FaTimes, FaPaperPlane } from "react-icons/fa";
 import testimonials from "@/data/testimonials.json";
 
 // Helper to get avatar from github link or username
@@ -112,6 +112,13 @@ export default function Testimonials() {
                <TestimonialCard key={index} testimonial={t} color="secondary" />
             ))}
           </Marquee>
+      </div>
+
+      <div className="text-center mt-12 relative z-10">
+        <a href="/contact" className="group relative inline-flex items-center gap-3 px-8 py-4 bg-base-100/30 backdrop-blur-md border border-white/10 rounded-full hover:border-primary/50 transition-all duration-300 hover:shadow-[0_0_30px_-5px_var(--color-primary)] hover:-translate-y-1">
+            <span className="font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Submit Your Feedback</span>
+            <FaPaperPlane className="text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+        </a>
       </div>
 
       {/* Modal for Full Feedback */}

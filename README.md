@@ -1,107 +1,76 @@
-# CodeRoom.Online - Modern Website
+# CodeRoom.Online - Premium Coding Mentorship Platform
 
-## ✨ Features Implemented
+## 🚀 Project Overview
+A high-performance, visually stunning web platform for **CodeRoom.Online**, a premium coding mentorship program in Sri Lanka. Built with **Next.js 16**, **Tailwind CSS v4**, and **DaisyUI 5**, focusing on engaging UX, glassmorphism, and data-driven content.
 
-### 🎨 Design
-- **Modern, Clean UI** using DaisyUI components
-- **Fully Responsive** - Mobile-first design
-- **Smooth Animations** with Framer Motion
-- **Theme Switcher** - 6 beautiful themes (Light, Dark, Synthwave, Cyberpunk, Valentine, Aqua)
-- **Gradient Accents** - Purple, Indigo, Pink color scheme
+## ✨ Key Features
 
-### 📦 Packages Used
-- **Next.js 16** - React framework
-- **Tailwind CSS v4** - Styling
-- **DaisyUI** - Component library
-- **Framer Motion** - Animations
-- **Swiper** - Testimonial carousel
-- **React Icons** - Icon library
-- **theme-change** - Theme switching
+### 🎨 Design & UI
+- **Premium Glassmorphism:** Custom glass cards, blurs, and sophisticated gradients.
+- **Floating Island Navbar:** Modern, responsive navigation that adapts to scroll.
+- **Bento Grid Layout:** A trend-setting grid to showcase features and benefits.
+- **Infinite Marquees:** Smooth, continuous scrolling for Tech Stack and Testimonials.
+- **Interactive Elements:** Floating CTAs, Hover effects, and AnimatePresence modals.
+- **Theme Awareness:** Fully dark/light mode compatible (Default: Night).
 
-### 📄 Sections
+### 🛠️ Functionality
+- **Data-Driven Content:**
+    - **Instructor Profile:** Powered by `data/instructor.json` & GitHub API.
+    - **Testimonials:** Powered by `data/testimonials.json`.
+    - **GitHub Sync:** Automated script to fetch real-time stats (Repos, Followers).
+- **Dynamic Routing:**
+    - **Home:** Main landing page with all key sections.
+    - **Courses:** Dedicated sales landing page for new batch registration.
+- **SEO Optimized:** Comprehensive metadata, Open Graph cards, and JSON-LD structure.
 
-1. **Navbar**
-   - Sticky navigation with scroll effect
-   - Mobile responsive menu
-   - Theme toggler dropdown
-   - Smooth animations
+## 📂 Project Structure
 
-2. **Hero Section**
-   - Eye-catching gradient background
-   - Animated floating elements
-   - Code mockup showcase
-   - Stats display
-   - CTA buttons
+### Data Management
+- `data/instructor.json`: Stores instructor bio, links, and stats.
+- `data/testimonials.json`: Stores student feedback.
+- `scripts/fetch-github.js`: Fetches live data from GitHub API.
 
-3. **Courses Section**
-   - 6 course cards with details
-   - Icons and badges
-   - Pricing and duration
-   - Hover animations
-   - Custom CTA card
+### Key Components
+- **FloatingCTA**: Smart "Register Now" button that appears on scroll.
+- **Instructor**: Detailed profile with social links, skills, and education.
+- **Testimonials**: Infinite scrolling reviews with "See More" modals.
+- **BentoGrid**: "Why CodeRoom" value proposition display.
 
-4. **Testimonials**
-   - Grid layout for desktop
-   - Swiper carousel for mobile
-   - Star ratings
-   - Student avatars
-   - Stats section
+## 🚀 Quick Start
 
-5. **Contact Section**
-   - WhatsApp integration
-   - Phone, Email, Location cards
-   - Contact form with validation
-   - Hover effects
-
-6. **Footer**
-   - Social media links
-   - Quick links
-   - Contact information
-   - Responsive layout
-
-## 🎯 To Customize
-
-### Update Contact Details
-Replace placeholders in:
-- `components/Contact.jsx` - WhatsApp link, phone, email
-- `components/Footer.jsx` - Contact info and social links
-- `components/Navbar.jsx` - WhatsApp link in mobile menu
-
-### Change Themes
-The theme toggler offers 6 themes. To add more, edit:
-- `components/Navbar.jsx` - Add theme buttons in dropdown
-
-Available DaisyUI themes: light, dark, cupcake, bumblebee, emerald, corporate, synthwave, retro, cyberpunk, valentine, halloween, garden, forest, aqua, lofi, pastel, fantasy, wireframe, black, luxury, dracula, cmyk, autumn, business, acid, lemonade, night, coffee, winter, dim, nord, sunset
-
-### Modify Colors
-Edit `app/globals.css`:
-```css
---color-primary: #6366f1;
---color-secondary: #8b5cf6;
---color-accent: #ec4899;
-```
-
-## 🚀 Running the Site
-
+### 1. Installation
 ```bash
-# Development
-npm run dev
-
-# Build for production
-npm run build
-
-# Start production server
-npm start
+npm install
 ```
 
-## 📱 Responsive Breakpoints
-- Mobile: < 768px
-- Tablet: 768px - 1024px
-- Desktop: > 1024px
+### 2. Development
+```bash
+npm run dev
+```
 
-## ⚠️ CSS Warnings
-The `@plugin` and `@theme` warnings in globals.css are expected - they're Tailwind v4 directives and work correctly.
+### 3. Update Data
+To sync Instructor stats with GitHub:
+```bash
+npm run update-profile
+```
+
+## 🛠️ Configuration
+
+### Customizing Data
+Edit the JSON files in the `data/` folder to update content without touching code.
+
+### Theming
+The project uses **DaisyUI 5**.
+- **Global Styles:** `app/globals.css` (custom gradient utilities).
+- **Theme Config:** `app/layout.jsx` and `components/ThemeProvider.jsx`.
+
+## 📦 Tech Stack
+- **Framework:** Next.js 16 (App Router)
+- **Styling:** Tailwind CSS v4
+- **UI Kit:** DaisyUI 5
+- **Animations:** Framer Motion
+- **Icons:** React Icons
+- **Utils:** clsx, tailwind-merge
 
 ---
-
-**Built with ❤️ for CodeRoom.Online**
+**Maintained by Dimuth Adithya for CodeRoom.Online**
