@@ -1,12 +1,13 @@
 "use client";
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { FaBars, FaPalette } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaBars, FaPalette, FaTimes } from "react-icons/fa";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -20,98 +21,132 @@ export default function Navbar() {
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/courses", label: "Courses" },
-    { href: "/#testimonials", label: "Success Stories" }, // Anchor on home page
+    { href: "/#testimonials", label: "Stories" },
     { href: "/contact", label: "Contact" },
   ];
 
   return (
-    <div className={`navbar fixed top-0 z-50 transition-all duration-300 ${
-      isScrolled ? "glass-card shadow-lg" : "bg-transparent"
-    }`}>
-      <div className="navbar-start">
-        <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-            <FaBars className="text-xl" />
-          </div>
-          <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow-2xl glass-card rounded-box w-52">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link href={link.href} className="font-medium text-base-content hover:text-primary transition-colors">
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <Link
-          href="/"
-          className="btn btn-ghost text-xl lg:text-2xl font-black normal-case hover:scale-105 transition-transform"
+    <>
+      <div className="fixed top-4 left-0 right-0 z-50 flex justify-center px-4">
+        <motion.nav
+          initial={{ y: -100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          className={`w-full max-w-5xl rounded-full transition-all duration-300 ${
+            isScrolled
+              ? "glass-card shadow-lg bg-base-100/80 backdrop-blur-md border border-base-content/5 py-2 px-6"
+              : "bg-base-100/50 backdrop-blur-sm border border-transparent py-3 px-6"
+          }`}
         >
-          <span className="gradient-text">CodeRoom</span>
-          <span className="text-accent">.Online</span>
-        </Link>
+          <div className="flex items-center justify-between">
+            {/* Logo */}
+            <Link
+              href="/"
+              className="text-xl font-bold tracking-tight hover:opacity-80 transition-opacity"
+            >
+              <span className="gradient-text">CodeRoom</span>
+            </Link>
+
+            {/* Desktop Navigation - Centered */}
+            <div className="hidden md:flex items-center gap-1 bg-base-200/50 p-1 rounded-full border border-base-content/5">
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href;
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${
+                      isActive
+                        ? "bg-base-100 shadow-sm text-primary"
+                        : "text-base-content/70 hover:text-base-content hover:bg-base-content/5"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
+            </div>
+
+            {/* Right Side Actions */}
+            <div className="flex items-center gap-3">
+              {/* Theme Toggler - Minimal */}
+              <div className="dropdown dropdown-end">
+                <div 
+                    tabIndex={0} 
+                    role="button" 
+                    className="btn btn-circle btn-sm btn-ghost hover:bg-base-content/10"
+                >
+                  <FaPalette className="text-base opacity-70" />
+                </div>
+                <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow-2xl bg-base-100 rounded-2xl w-48 mt-4 border border-base-content/10 gap-1">
+                    {[
+                      { id: "light", icon: "☀️", label: "Light" },
+                      { id: "dark", icon: "🌙", label: "Dark" },
+                      { id: "synthwave", icon: "🌆", label: "Synthwave" },
+                      { id: "cyberpunk", icon: "🤖", label: "Cyberpunk" },
+                      { id: "forest", icon: "🌲", label: "Forest" },
+                      { id: "luxury", icon: "💎", label: "Luxury" },
+                    ].map((theme) => (
+                      <li key={theme.id}>
+                        <button data-set-theme={theme.id} className="rounded-lg text-sm font-medium">
+                          <span className="text-lg">{theme.icon}</span> {theme.label}
+                        </button>
+                      </li>
+                    ))}
+                </ul>
+              </div>
+
+              {/* Mobile Menu Toggle */}
+              <button 
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="btn btn-circle btn-sm btn-ghost md:hidden"
+              >
+                {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
+              </button>
+
+              {/* CTA Button */}
+              <Link
+                href="/courses"
+                className="hidden md:inline-flex btn btn-primary btn-sm rounded-full px-5 font-medium shadow-lg hover:shadow-primary/25 transition-all"
+              >
+                Get Started
+              </Link>
+            </div>
+          </div>
+        </motion.nav>
       </div>
-      
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 font-semibold gap-1">
-          {navLinks.map((link) => {
-            const isActive = pathname === link.href;
-            return (
-              <li key={link.href}>
-                <Link 
-                  href={link.href} 
-                  className={`transition-all rounded-lg ${
-                    isActive 
-                      ? "text-primary bg-primary/10" 
-                      : "text-base-content hover:text-primary hover:bg-primary/10"
-                  }`}
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="fixed top-20 left-4 right-4 z-40 bg-base-100 rounded-3xl shadow-2xl border border-base-content/10 p-4 md:hidden"
+          >
+            <nav className="flex flex-col gap-2">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="px-4 py-3 rounded-xl hover:bg-base-200 font-medium transition-colors"
                 >
                   {link.label}
                 </Link>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-      
-      <div className="navbar-end gap-2">
-        {/* Enhanced Theme Toggler */}
-        <div className="dropdown dropdown-end">
-          <div tabIndex={0} role="button" className="btn btn-ghost btn-circle hover:bg-primary/10 hover:text-primary transition-all">
-            <FaPalette className="text-xl" />
-          </div>
-          <ul tabIndex={0} className="dropdown-content z-[1] p-3 shadow-2xl glass-card rounded-box w-56 mt-4 menu gap-1">
-            <li className="menu-title px-3 py-2">
-              <span className="text-primary font-bold">Choose Theme</span>
-            </li>
-            {[
-              { id: "light", icon: "☀️", label: "Light" },
-              { id: "dark", icon: "🌙", label: "Dark" },
-              { id: "synthwave", icon: "🌆", label: "Synthwave" },
-              { id: "cyberpunk", icon: "🤖", label: "Cyberpunk" },
-              { id: "valentine", icon: "💖", label: "Valentine" },
-              { id: "aqua", icon: "🌊", label: "Aqua" },
-              { id: "forest", icon: "🌲", label: "Forest" },
-              { id: "luxury", icon: "💎", label: "Luxury" },
-            ].map((theme) => (
-              <li key={theme.id}>
-                <button data-set-theme={theme.id} className="flex items-center gap-3 hover:bg-primary/10 hover:text-primary transition-all">
-                  <span className="text-xl">{theme.icon}</span>
-                  <span className="flex-1">{theme.label}</span>
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <Link
-          href="/contact"
-          className="btn btn-primary btn-sm lg:btn-md gap-2 shadow-lg hover:shadow-xl hover:scale-105 transition-all"
-        >
-          <span className="hidden sm:inline">Join Now</span>
-          <span className="sm:hidden">Join</span>
-        </Link>
-      </div>
-    </div>
+              ))}
+              <div className="h-px bg-base-content/5 my-2"></div>
+              <Link
+                href="/courses"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="btn btn-primary w-full rounded-xl"
+              >
+                Get Started
+              </Link>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
