@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { FaBars } from "react-icons/fa";
+import { FaBars, FaPalette } from "react-icons/fa";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -23,69 +23,117 @@ export default function Navbar() {
 
   return (
     <div className={`navbar fixed top-0 z-50 transition-all duration-300 ${
-      isScrolled ? "bg-base-100/90 backdrop-blur-lg shadow-lg" : "bg-transparent"
+      isScrolled ? "glass-card shadow-lg" : "bg-transparent"
     }`}>
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <FaBars className="text-xl" />
           </div>
-          <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow-xl bg-base-100 rounded-box w-52">
+          <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow-2xl glass-card rounded-box w-52">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <a href={link.href} className="font-medium">{link.label}</a>
+                <a href={link.href} className="font-medium text-base-content hover:text-primary transition-colors">
+                  {link.label}
+                </a>
               </li>
             ))}
           </ul>
         </div>
         <motion.a
           href="#home"
-          className="btn btn-ghost text-xl lg:text-2xl font-bold normal-case"
+          className="btn btn-ghost text-xl lg:text-2xl font-black normal-case"
           whileHover={{ scale: 1.05 }}
         >
           <span className="gradient-text">CodeRoom</span>
-          <span className="text-pink-500">.Online</span>
+          <span className="text-accent">.Online</span>
         </motion.a>
       </div>
       
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 font-semibold">
+        <ul className="menu menu-horizontal px-1 font-semibold gap-1">
           {navLinks.map((link) => (
             <li key={link.href}>
-              <a href={link.href} className="hover:text-primary transition-colors">{link.label}</a>
+              <a 
+                href={link.href} 
+                className="text-base-content hover:text-primary hover:bg-primary/10 transition-all rounded-lg"
+              >
+                {link.label}
+              </a>
             </li>
           ))}
         </ul>
       </div>
       
       <div className="navbar-end gap-2">
-        {/* Theme Toggler */}
+        {/* Enhanced Theme Toggler */}
         <div className="dropdown dropdown-end">
-          <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
-            </svg>
+          <div tabIndex={0} role="button" className="btn btn-ghost btn-circle hover:bg-primary/10 hover:text-primary transition-all">
+            <FaPalette className="text-xl" />
           </div>
-          <ul tabIndex={0} className="dropdown-content z-[1] p-2 shadow-2xl bg-base-100 rounded-box w-52 menu">
-            <li className="menu-title">
-              <span>Choose Theme</span>
+          <ul tabIndex={0} className="dropdown-content z-[1] p-3 shadow-2xl glass-card rounded-box w-56 mt-4 menu gap-1">
+            <li className="menu-title px-3 py-2">
+              <span className="text-primary font-bold">Choose Theme</span>
             </li>
-            <li><button data-set-theme="light" data-act-class="active">🌞 Light</button></li>
-            <li><button data-set-theme="dark" data-act-class="active">🌙 Dark</button></li>
-            <li><button data-set-theme="synthwave" data-act-class="active">🌆 Synthwave</button></li>
-            <li><button data-set-theme="cyberpunk" data-act-class="active">🤖 Cyberpunk</button></li>
-            <li><button data-set-theme="valentine" data-act-class="active">💖 Valentine</button></li>
-            <li><button data-set-theme="aqua" data-act-class="active">🌊 Aqua</button></li>
+            <li>
+              <button data-set-theme="light" className="flex items-center gap-3 hover:bg-primary/10 hover:text-primary transition-all">
+                <span className="text-xl">☀️</span>
+                <span className="flex-1">Light</span>
+              </button>
+            </li>
+            <li>
+              <button data-set-theme="dark" className="flex items-center gap-3 hover:bg-primary/10 hover:text-primary transition-all">
+                <span className="text-xl">🌙</span>
+                <span className="flex-1">Dark</span>
+              </button>
+            </li>
+            <li>
+              <button data-set-theme="synthwave" className="flex items-center gap-3 hover:bg-primary/10 hover:text-primary transition-all">
+                <span className="text-xl">🌆</span>
+                <span className="flex-1">Synthwave</span>
+              </button>
+            </li>
+            <li>
+              <button data-set-theme="cyberpunk" className="flex items-center gap-3 hover:bg-primary/10 hover:text-primary transition-all">
+                <span className="text-xl">🤖</span>
+                <span className="flex-1">Cyberpunk</span>
+              </button>
+            </li>
+            <li>
+              <button data-set-theme="valentine" className="flex items-center gap-3 hover:bg-primary/10 hover:text-primary transition-all">
+                <span className="text-xl">💖</span>
+                <span className="flex-1">Valentine</span>
+              </button>
+            </li>
+            <li>
+              <button data-set-theme="aqua" className="flex items-center gap-3 hover:bg-primary/10 hover:text-primary transition-all">
+                <span className="text-xl">🌊</span>
+                <span className="flex-1">Aqua</span>
+              </button>
+            </li>
+            <li>
+              <button data-set-theme="forest" className="flex items-center gap-3 hover:bg-primary/10 hover:text-primary transition-all">
+                <span className="text-xl">🌲</span>
+                <span className="flex-1">Forest</span>
+              </button>
+            </li>
+            <li>
+              <button data-set-theme="luxury" className="flex items-center gap-3 hover:bg-primary/10 hover:text-primary transition-all">
+                <span className="text-xl">💎</span>
+                <span className="flex-1">Luxury</span>
+              </button>
+            </li>
           </ul>
         </div>
 
         <motion.a
           href="#contact"
-          className="btn btn-primary btn-sm lg:btn-md"
-          whileHover={{ scale: 1.05 }}
+          className="btn btn-primary btn-sm lg:btn-md gap-2 shadow-lg hover:shadow-xl"
+          whileHover={{ scale: 1.05, y: -2 }}
           whileTap={{ scale: 0.95 }}
         >
-          Join Now
+          <span className="hidden sm:inline">Join Now</span>
+          <span className="sm:hidden">Join</span>
         </motion.a>
       </div>
     </div>
