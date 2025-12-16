@@ -1,36 +1,107 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# CodeRoom.Online - Modern Website
 
-## Getting Started
+## ✨ Features Implemented
 
-First, run the development server:
+### 🎨 Design
+- **Modern, Clean UI** using DaisyUI components
+- **Fully Responsive** - Mobile-first design
+- **Smooth Animations** with Framer Motion
+- **Theme Switcher** - 6 beautiful themes (Light, Dark, Synthwave, Cyberpunk, Valentine, Aqua)
+- **Gradient Accents** - Purple, Indigo, Pink color scheme
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### 📦 Packages Used
+- **Next.js 16** - React framework
+- **Tailwind CSS v4** - Styling
+- **DaisyUI** - Component library
+- **Framer Motion** - Animations
+- **Swiper** - Testimonial carousel
+- **React Icons** - Icon library
+- **theme-change** - Theme switching
+
+### 📄 Sections
+
+1. **Navbar**
+   - Sticky navigation with scroll effect
+   - Mobile responsive menu
+   - Theme toggler dropdown
+   - Smooth animations
+
+2. **Hero Section**
+   - Eye-catching gradient background
+   - Animated floating elements
+   - Code mockup showcase
+   - Stats display
+   - CTA buttons
+
+3. **Courses Section**
+   - 6 course cards with details
+   - Icons and badges
+   - Pricing and duration
+   - Hover animations
+   - Custom CTA card
+
+4. **Testimonials**
+   - Grid layout for desktop
+   - Swiper carousel for mobile
+   - Star ratings
+   - Student avatars
+   - Stats section
+
+5. **Contact Section**
+   - WhatsApp integration
+   - Phone, Email, Location cards
+   - Contact form with validation
+   - Hover effects
+
+6. **Footer**
+   - Social media links
+   - Quick links
+   - Contact information
+   - Responsive layout
+
+## 🎯 To Customize
+
+### Update Contact Details
+Replace placeholders in:
+- `components/Contact.jsx` - WhatsApp link, phone, email
+- `components/Footer.jsx` - Contact info and social links
+- `components/Navbar.jsx` - WhatsApp link in mobile menu
+
+### Change Themes
+The theme toggler offers 6 themes. To add more, edit:
+- `components/Navbar.jsx` - Add theme buttons in dropdown
+
+Available DaisyUI themes: light, dark, cupcake, bumblebee, emerald, corporate, synthwave, retro, cyberpunk, valentine, halloween, garden, forest, aqua, lofi, pastel, fantasy, wireframe, black, luxury, dracula, cmyk, autumn, business, acid, lemonade, night, coffee, winter, dim, nord, sunset
+
+### Modify Colors
+Edit `app/globals.css`:
+```css
+--color-primary: #6366f1;
+--color-secondary: #8b5cf6;
+--color-accent: #ec4899;
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Running the Site
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```bash
+# Development
+npm run dev
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Build for production
+npm run build
 
-## Learn More
+# Start production server
+npm start
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 📱 Responsive Breakpoints
+- Mobile: < 768px
+- Tablet: 768px - 1024px
+- Desktop: > 1024px
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## ⚠️ CSS Warnings
+The `@plugin` and `@theme` warnings in globals.css are expected - they're Tailwind v4 directives and work correctly.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Built with ❤️ for CodeRoom.Online**
