@@ -10,7 +10,7 @@ export default function Hero() {
       <div className="absolute top-0 right-0 -translate-y-1/3 translate-x-1/3 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
       <div className="absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/3 w-[600px] h-[600px] bg-secondary/5 rounded-full blur-3xl pointer-events-none"></div>
 
-      <div className="hero-content flex-col lg:flex-row-reverse gap-16 max-w-7xl mx-auto px-4 relative z-10 py-20">
+      <div className="hero-content flex-col-reverse lg:flex-row-reverse gap-16 max-w-7xl mx-auto px-4 relative z-10 py-20">
         
         {/* Right side - Clean Code Window */}
         <motion.div
