@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { FaLaptopCode, FaUserTie, FaCertificate, FaRocket, FaUsers, FaGlobe } from "react-icons/fa";
+import { FaLaptopCode, FaUserTie, FaGithub, FaRocket, FaUsers } from "react-icons/fa";
 
 export default function BentoGrid() {
   return (
@@ -58,8 +58,8 @@ export default function BentoGrid() {
           >
             <FaUserTie className="text-4xl text-secondary mb-4" />
             <div>
-                <h3 className="text-xl font-bold">Expert Mentors</h3>
-                <p className="text-sm opacity-70">Learn from engineers at top tech companies.</p>
+                <h3 className="text-xl font-bold">Industry Expert</h3>
+                <p className="text-sm opacity-70">Learn directly from a Full Stack Developer.</p>
             </div>
           </motion.div>
 
@@ -68,10 +68,10 @@ export default function BentoGrid() {
             whileHover={{ y: -5 }}
             className="md:col-span-1 md:row-span-1 bg-accent/10 dark:bg-accent/20 p-6 rounded-3xl border border-accent/20 flex flex-col justify-between"
           >
-            <FaCertificate className="text-4xl text-accent mb-4" />
+            <FaGithub className="text-4xl text-accent mb-4" />
             <div>
-                <h3 className="text-xl font-bold">Certification</h3>
-                <p className="text-sm opacity-70">Industry recognized certificates upon completion.</p>
+                <h3 className="text-xl font-bold">Portfolio Ready</h3>
+                <p className="text-sm opacity-70">Don't just get a certificate. Build a GitHub that gets you hired.</p>
             </div>
           </motion.div>
 
@@ -110,11 +110,11 @@ export default function BentoGrid() {
             whileHover={{ scale: 1.02 }}
             className="md:col-span-1 md:row-span-2 bg-base-200 p-6 rounded-3xl flex flex-col justify-between"
           >
-            <FaGlobe className="text-5xl text-info opacity-80" />
+            <FaLaptopCode className="text-5xl text-info opacity-80" />
              <div>
-                <h3 className="text-4xl font-black mt-4">10+</h3>
-                <p className="font-bold">Countries</p>
-                <p className="text-xs opacity-60 mt-2">Our students are working globally.</p>
+                <h3 className="text-4xl font-black mt-4">1:1</h3>
+                <p className="font-bold">Code Reviews</p>
+                <p className="text-xs opacity-60 mt-2">Personalized feedback on every line of code you write.</p>
             </div>
           </motion.div>
 
