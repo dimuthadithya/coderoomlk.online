@@ -5,7 +5,6 @@ import { FaPalette } from "react-icons/fa";
 
 const Navbar = () => {
   const [theme, setTheme] = useState('synthwave');
-  const [showThemes, setShowThemes] = useState(false);
 
   const themes = [
     { name: 'synthwave', label: 'Synthwave', color: 'bg-gradient-to-r from-pink-500 to-purple-600' },
@@ -14,19 +13,21 @@ const Navbar = () => {
     { name: 'cyberpunk', label: 'Cyberpunk', color: 'bg-gradient-to-r from-yellow-400 to-pink-500' },
     { name: 'forest', label: 'Forest', color: 'bg-gradient-to-r from-green-700 to-emerald-900' },
     { name: 'luxury', label: 'Luxury', color: 'bg-gradient-to-r from-amber-600 to-yellow-500' },
+    { name: 'winter', label: 'Winter', color: 'bg-gradient-to-r from-blue-400 to-cyan-300' },
   ];
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme') || 'synthwave';
+    console.log('Loading theme:', savedTheme);
     setTheme(savedTheme);
     document.documentElement.setAttribute('data-theme', savedTheme);
   }, []);
 
   const changeTheme = (newTheme) => {
+    console.log('Changing theme to:', newTheme);
     setTheme(newTheme);
     localStorage.setItem('theme', newTheme);
     document.documentElement.setAttribute('data-theme', newTheme);
-    setShowThemes(false);
   };
     
   return (
@@ -93,29 +94,28 @@ const Navbar = () => {
           <div 
             tabIndex={0} 
             role="button" 
-            className="btn btn-ghost btn-circle"
-            onClick={() => setShowThemes(!showThemes)}
+            className="btn btn-ghost btn-circle tooltip tooltip-bottom"
+            data-tip="Change Theme"
           >
             <FaPalette className="text-xl text-primary" />
           </div>
-          {showThemes && (
-            <ul tabIndex={0} className="dropdown-content z-[1] p-3 shadow-2xl bg-base-100 rounded-box w-64 mt-4 border border-base-300">
-              <li className="mb-2 px-2 font-bold text-sm opacity-60">Choose Theme</li>
-              {themes.map((t) => (
-                <li key={t.name}>
-                  <button
-                    onClick={() => changeTheme(t.name)}
-                    className={`w-full text-left p-3 rounded-lg hover:bg-base-200 transition-all flex items-center gap-3 ${
-                      theme === t.name ? 'bg-base-200 ring-2 ring-primary' : ''
-                    }`}
-                  >
-                    <div className={`w-8 h-8 rounded-full ${t.color} shadow-lg`}></div>
-                    <span className="font-semibold">{t.label}</span>
-                  </button>
-                </li>
-              ))}
-            </ul>
-          )}
+          <ul tabIndex={0} className="dropdown-content z-[1] p-3 shadow-2xl bg-base-100 rounded-box w-64 mt-4 border border-base-300 max-h-96 overflow-y-auto">
+            <li className="mb-2 px-2 font-bold text-sm opacity-60">Choose Theme</li>
+            {themes.map((t) => (
+              <li key={t.name}>
+                <button
+                  onClick={() => changeTheme(t.name)}
+                  className={`w-full text-left p-3 rounded-lg hover:bg-base-200 transition-all flex items-center gap-3 ${
+                    theme === t.name ? 'bg-base-200 ring-2 ring-primary' : ''
+                  }`}
+                >
+                  <div className={`w-8 h-8 rounded-full ${t.color} shadow-lg`}></div>
+                  <span className="font-semibold">{t.label}</span>
+                  {theme === t.name && <span className="ml-auto text-primary">✓</span>}
+                </button>
+              </li>
+            ))}
+          </ul>
         </div>
         
         <a
