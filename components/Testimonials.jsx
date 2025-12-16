@@ -2,51 +2,7 @@
 import { motion } from "framer-motion";
 import Marquee from "react-fast-marquee";
 import { FaStar, FaQuoteLeft } from "react-icons/fa";
-
-const testimonials = [
-  {
-    name: "Saman Perera",
-    role: "Frontend Developer @ WSO2",
-    text: "CodeRoom transformed my career. The hands-on projects and mentorship helped me land my dream job at WSO2.",
-    avatar: "https://i.pravatar.cc/150?img=11",
-    rating: 5
-  },
-  {
-    name: "Nimali Fernando",
-    role: "Full Stack Developer",
-    text: "From zero coding knowledge to building full-stack applications in 6 months! Essential for any aspiring dev.",
-    avatar: "https://i.pravatar.cc/150?img=5",
-    rating: 5
-  },
-  {
-    name: "Kasun Jayasuriya",
-    role: "Software Engineer @ Virtusa",
-    text: "The community is amazing. Real-time doubt clearing and networking opportunities made all the difference.",
-    avatar: "https://i.pravatar.cc/150?img=3",
-    rating: 5
-  },
-  {
-    name: "Tharushi Silva",
-    role: "React Developer @ 99X",
-    text: "Learning React & Next.js here was a game changer. The curriculum is up-to-date with industry standards.",
-    avatar: "https://i.pravatar.cc/150?img=9",
-    rating: 5
-  },
-  {
-    name: "Ravindu Wickramasinghe",
-    role: "Backend Engineer @ IFS",
-    text: "Solid foundation in Node.js and Cloud. I built a portfolio that actually impressed interviewers.",
-    avatar: "https://i.pravatar.cc/150?img=12",
-    rating: 5
-  },
-    {
-    name: "Dilshan Kumar",
-    role: "Freelance Developer",
-    text: "I started freaking at Upwork after this course. Best decision of my life!",
-    avatar: "https://i.pravatar.cc/150?img=60",
-    rating: 5
-  }
-];
+import testimonials from "@/data/testimonials.json";
 
 export default function Testimonials() {
   return (
