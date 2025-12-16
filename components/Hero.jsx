@@ -7,23 +7,35 @@ const Hero = () => {
   return (
     <div className="hero min-h-screen relative overflow-hidden bg-base-200" id="about">
       {/* Background decoration */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-20 pointer-events-none">
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <div className="absolute inset-0 bg-base-200"></div>
         <motion.div
            animate={{
             scale: [1, 1.2, 1],
-            rotate: [0, 10, -10, 0],
+            rotate: [0, 45, -45, 0],
+            x: [0, 100, -100, 0],
+            y: [0, -50, 50, 0],
           }}
-          transition={{ duration: 20, repeat: Infinity }}
-          className="absolute -top-1/2 -right-1/4 w-[800px] h-[800px] bg-primary rounded-full blur-[100px]"
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          className="absolute -top-[20%] -left-[10%] w-[70vw] h-[70vw] bg-primary/30 rounded-full blur-[120px]"
         />
-        <motion.div
+         <motion.div
            animate={{
-            scale: [1, 1.5, 1],
-            rotate: [0, -20, 20, 0],
+            scale: [1, 1.1, 1],
+            rotate: [0, -45, 45, 0],
+            x: [0, -50, 50, 0],
           }}
-          transition={{ duration: 25, repeat: Infinity, delay: 2 }}
-          className="absolute -bottom-1/2 -left-1/4 w-[600px] h-[600px] bg-secondary rounded-full blur-[120px]"
+          transition={{ duration: 15, repeat: Infinity, ease: "linear", delay: 2 }}
+          className="absolute top-[20%] right-[0%] w-[60vw] h-[60vw] bg-secondary/30 rounded-full blur-[120px]"
         />
+         <motion.div
+           animate={{
+            scale: [1, 1.3, 1],
+           }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          className="absolute -bottom-[20%] left-[20%] w-[50vw] h-[50vw] bg-accent/20 rounded-full blur-[100px]"
+        />
+        <div className="absolute inset-0 bg-grid-slate-900/[0.04] bg-[bottom_1px_center] dark:bg-grid-slate-400/[0.05] [mask-image:linear-gradient(0deg,transparent,black)]"></div>
       </div>
 
       <div className="hero-content flex-col lg:flex-row-reverse z-10 gap-10">
