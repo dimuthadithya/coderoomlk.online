@@ -1,73 +1,88 @@
-import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram, FaGithub, FaYoutube, FaHeart } from "react-icons/fa";
+"use client";
+import Link from "next/link";
+import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram, FaGithub, FaYoutube, FaHeart, FaWhatsapp } from "react-icons/fa";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="bg-base-300">
-      <div className="footer p-10 max-w-7xl mx-auto text-base-content">
-        <aside>
-          <h3 className="text-2xl font-black">
-            <span className="gradient-text">CodeRoom</span>
-            <span className="text-accent">.Online</span>
-          </h3>
-          <p className="max-w-xs">
-            Empowering the next generation of developers with world-class education and mentorship.
+    <footer className="bg-base-100 border-t border-base-content/10 pt-16 pb-8">
+      <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        
+        {/* Brand Column */}
+        <div className="space-y-6">
+          <Link href="/" className="inline-block">
+            <h3 className="text-2xl font-black tracking-tight">
+              <span className="gradient-text">CodeRoom</span>
+              <span className="text-accent">.Online</span>
+            </h3>
+          </Link>
+          <p className="text-base-content/60 leading-relaxed max-w-xs">
+            Empowering the next generation of developers with world-class education, mentorship, and career guidance.
           </p>
-          <div className="flex gap-2 mt-4">
-            <a href="#" className="btn btn-circle btn-sm btn-ghost hover:btn-primary">
-              <FaFacebook className="text-lg" />
-            </a>
-            <a href="#" className="btn btn-circle btn-sm btn-ghost hover:btn-info">
-              <FaTwitter className="text-lg" />
-            </a>
-            <a href="#" className="btn btn-circle btn-sm btn-ghost hover:btn-error">
-              <FaInstagram className="text-lg" />
-            </a>
-            <a href="#" className="btn btn-circle btn-sm btn-ghost hover:btn-primary">
-              <FaLinkedin className="text-lg" />
-            </a>
-            <a href="#" className="btn btn-circle btn-sm btn-ghost hover:btn-error">
-              <FaYoutube className="text-lg" />
-            </a>
-            <a href="#" className="btn btn-circle btn-sm btn-ghost hover:btn-neutral">
-              <FaGithub className="text-lg" />
-            </a>
+          <div className="flex gap-4">
+             {/* Socials - Clean & Uniform */}
+            {[FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaGithub].map((Icon, i) => (
+                <a key={i} href="#" className="text-base-content/40 hover:text-primary transition-colors">
+                    <Icon className="text-xl" />
+                </a>
+            ))}
           </div>
-        </aside>
+        </div>
         
-        <nav>
-          <h6 className="footer-title">Quick Links</h6>
-          <a href="#home" className="link link-hover">Home</a>
-          <a href="#courses" className="link link-hover">Courses</a>
-          <a href="#testimonials" className="link link-hover">Success Stories</a>
-          <a href="#contact" className="link link-hover">Contact</a>
-        </nav>
+        {/* Quick Links */}
+        <div>
+          <h6 className="font-bold text-lg mb-6">Quick Links</h6>
+          <nav className="flex flex-col gap-3 text-base-content/60">
+            <Link href="/" className="hover:text-primary transition-colors">Home</Link>
+            <Link href="/courses" className="hover:text-primary transition-colors">All Courses</Link>
+            <Link href="/#testimonials" className="hover:text-primary transition-colors">Success Stories</Link>
+            <Link href="/contact" className="hover:text-primary transition-colors">Contact Us</Link>
+          </nav>
+        </div>
         
-        <nav>
-          <h6 className="footer-title">Popular Courses</h6>
-          <a href="#" className="link link-hover">Full Stack Development</a>
-          <a href="#" className="link link-hover">Frontend Mastery</a>
-          <a href="#" className="link link-hover">Backend Engineering</a>
-          <a href="#" className="link link-hover">Mobile Development</a>
-        </nav>
+        {/* Popular Courses */}
+        <div>
+          <h6 className="font-bold text-lg mb-6">Trending Courses</h6>
+          <nav className="flex flex-col gap-3 text-base-content/60">
+            <Link href="/courses" className="hover:text-primary transition-colors">Full Stack Web Dev</Link>
+            <Link href="/courses" className="hover:text-primary transition-colors">Next.js Mastery</Link>
+            <Link href="/courses" className="hover:text-primary transition-colors">Python & Django</Link>
+            <Link href="/courses" className="hover:text-primary transition-colors">DevOps Engineering</Link>
+          </nav>
+        </div>
         
-        <nav>
-          <h6 className="footer-title">Contact Info</h6>
-          <a href="mailto:hello@coderoom.online" className="link link-hover">hello@coderoom.online</a>
-          <a href="tel:+94701234567" className="link link-hover">+94 70 123 4567</a>
-          <a href="https://wa.me/YOUR_NUMBER" className="link link-hover text-success">WhatsApp Community</a>
-          <p>Colombo, Sri Lanka</p>
-        </nav>
+        {/* Contact */}
+        <div>
+           <h6 className="font-bold text-lg mb-6">Get in Touch</h6>
+           <nav className="flex flex-col gap-4 text-base-content/60">
+             <a href="mailto:hello@coderoom.online" className="hover:text-primary transition-colors">
+                hello@coderoom.online
+             </a>
+             <a href="tel:+94701234567" className="hover:text-primary transition-colors">
+                +94 70 123 4567
+             </a>
+             <a 
+                href="https://wa.me/YOUR_NUMBER" 
+                className="inline-flex items-center gap-2 text-base-content font-medium hover:text-green-500 transition-colors"
+            >
+                <FaWhatsapp /> Join WhatsApp Group
+             </a>
+             <p className="opacity-50 mt-2">
+                123 Tech Street, Colombo 03, Sri Lanka
+             </p>
+           </nav>
+        </div>
+
       </div>
       
-      <div className="footer footer-center p-4 bg-base-300 text-base-content border-t border-base-content/10">
-        <aside className="flex flex-col md:flex-row items-center gap-2">
-          <p>© {currentYear} <span className="font-bold gradient-text">CodeRoom.Online</span> - All rights reserved</p>
-          <p className="flex items-center gap-1">
-            Made with <FaHeart className="text-error animate-pulse" /> for aspiring developers
-          </p>
-        </aside>
+      {/* Bottom Bar */}
+      <div className="max-w-7xl mx-auto px-4 pt-8 border-t border-base-content/5 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-base-content/40">
+          <p>© {currentYear} CodeRoom.Online. All rights reserved.</p>
+          <div className="flex gap-6">
+            <a href="#" className="hover:text-base-content/80">Privacy Policy</a>
+            <a href="#" className="hover:text-base-content/80">Terms of Service</a>
+          </div>
       </div>
     </footer>
   );
