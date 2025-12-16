@@ -7,6 +7,10 @@
     "role": "Full Stack Developer",
     "url": "https://www.oxymai.com/"
   },
+  "education": {
+    "institute": "SLIATE Kegalle",
+    "batch": "2020 Batch"
+  },
   "bio": "🌱 Learning React.js, exploring modern web technologies.\r\n🔭 Enhancing skills with new tools.\r\n💬 Discuss trends, innovations, projects.",
   "about": "Based in Kegalle, I am passionate about bridging the gap between theory and industry-grade application. Check out my work at dimuthadithya.me",
   "stats": [

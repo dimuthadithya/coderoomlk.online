@@ -26,19 +26,24 @@ export default function FloatingCTA() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 50 }}
-          className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2"
+          className="fixed bottom-8 right-8 z-50 group cursor-pointer"
         >
-          {/* Tooltip / Label */}
-          <div className="bg-base-100 shadow-xl rounded-xl p-3 border border-primary/20 mb-2 relative hidden md:block">
-             <p className="text-sm font-bold">New Batch Enrolling!</p>
-             <div className="absolute -bottom-1 right-6 w-3 h-3 bg-base-100 border-b border-r border-primary/20 rotate-45"></div>
-          </div>
-
           <Link href="/courses">
-            <button className="btn btn-primary btn-lg rounded-full shadow-2xl gap-2 animate-bounce-subtle">
-              <FaRocket /> 
-              <span className="font-bold">Register Now</span>
-            </button>
+            <div className="relative">
+                {/* Glow Effect */}
+                <div className="absolute inset-0 bg-primary/40 blur-xl rounded-full opacity-60 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
+                
+                {/* Button Content */}
+                <div className="relative bg-base-100/90 backdrop-blur-xl border border-primary/30 hover:border-primary text-base-content py-2 pl-2 pr-6 rounded-full flex items-center gap-3 shadow-2xl transition-all transform group-hover:scale-105 group-hover:-translate-y-1">
+                    <div className="bg-gradient-to-tr from-primary to-secondary w-12 h-12 rounded-full flex items-center justify-center text-white shadow-lg">
+                    <FaRocket className="text-xl animate-bounce-subtle" />
+                    </div>
+                    <div className="flex flex-col items-start leading-tight">
+                        <span className="text-[10px] uppercase font-bold tracking-wider opacity-60">Limited Seats</span>
+                        <span className="text-md font-black gradient-text">Register Now</span>
+                    </div>
+                </div>
+            </div>
           </Link>
         </motion.div>
       )}

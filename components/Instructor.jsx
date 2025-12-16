@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaTwitter, FaAward, FaCode, FaChalkboardTeacher, FaMedium, FaYoutube } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaTwitter, FaAward, FaCode, FaChalkboardTeacher, FaMedium, FaYoutube, FaGraduationCap } from "react-icons/fa";
 import instructorData from "@/data/instructor.json";
 
 // Map strings from JSON to React Components
@@ -66,6 +66,18 @@ export default function Instructor() {
                     <a href={instructorData.company.url} target="_blank" rel="noopener noreferrer" className="link link-hover text-base-content hover:text-accent font-bold">
                         {instructorData.company.name}
                     </a>
+                </div>
+            )}
+            
+            {/* Education */}
+            {instructorData.education && (
+                <div className="flex items-center gap-3 mb-6 text-base-content/80 bg-base-200/50 p-3 rounded-lg w-fit">
+                    <FaGraduationCap className="text-xl text-secondary" />
+                    <div>
+                        <span className="font-bold">{instructorData.education.institute}</span>
+                        <span className="mx-2 opacity-40">|</span>
+                        <span className="text-sm opacity-70">{instructorData.education.batch}</span>
+                    </div>
                 </div>
             )}
 
