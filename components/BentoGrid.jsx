@@ -78,7 +78,7 @@ export default function BentoGrid() {
           {/* Card 4 - Wide Bottom Info */}
           <motion.div 
             whileHover={{ scale: 1.02 }}
-            className="md:col-span-2 md:row-span-1 bg-gradient-to-r from-indigo-600 to-purple-600 text-white p-8 rounded-3xl relative overflow-hidden"
+            className="md:col-span-2 md:row-span-1 bg-gradient-to-r from-primary to-secondary text-primary-content p-8 rounded-3xl relative overflow-hidden"
           >
             <div className="relative z-10">
                 <h3 className="text-2xl font-bold mb-2">Career Acceleration</h3>

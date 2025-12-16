@@ -9,7 +9,7 @@ export default function Footer() {
         <aside>
           <h3 className="text-2xl font-black">
             <span className="gradient-text">CodeRoom</span>
-            <span className="text-pink-500">.Online</span>
+            <span className="text-accent">.Online</span>
           </h3>
           <p className="max-w-xs">
             Empowering the next generation of developers with world-class education and mentorship.

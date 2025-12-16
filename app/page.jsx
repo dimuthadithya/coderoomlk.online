@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import TechMarquee from "@/components/TechMarquee";
 import BentoGrid from "@/components/BentoGrid";
+import Instructor from "@/components/Instructor";
 import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
 import { FaArrowRight } from "react-icons/fa";
@@ -13,6 +14,7 @@ export default function Home() {
       <Hero />
       <TechMarquee />
       <BentoGrid />
+      <Instructor />
       <Testimonials />
       
       {/* Simple CTA Section for Home Page */}
