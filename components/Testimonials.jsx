@@ -1,8 +1,21 @@
 "use client";
 import { motion } from "framer-motion";
 import Marquee from "react-fast-marquee";
-import { FaStar, FaQuoteLeft } from "react-icons/fa";
+import { FaQuoteLeft, FaGithub } from "react-icons/fa";
 import testimonials from "@/data/testimonials.json";
+
+// Helper to get avatar from github link or username
+const getAvatar = (github) => {
+    if (!github) return "https://github.com/github.png";
+    const username = github.replace('https://github.com/', '').replace('/', '');
+    return `https://github.com/${username}.png`;
+};
+
+// Helper for clean GitHub Link
+const getGithubLink = (github) => {
+    if (github.startsWith('http')) return github;
+    return `https://github.com/${github}`;
+};
 
 export default function Testimonials() {
   return (
@@ -22,7 +35,7 @@ export default function Testimonials() {
             Trusted by <span className="gradient-text">Students</span>
           </h2>
           <p className="text-xl opacity-70 max-w-2xl mx-auto">
-            Join hundreds of students who are now working at top tech companies.
+            From university students to industry professionals, see who's learning with us.
           </p>
         </motion.div>
       </div>
@@ -32,27 +45,37 @@ export default function Testimonials() {
           <Marquee gradient={true} gradientColor="hsl(var(--b1))" speed={40} pauseOnHover={true}>
             {testimonials.map((testimonial, index) => (
               <div key={index} className="mx-4 my-8">
-                <div className="glass-card w-[400px] p-6 rounded-2xl hover:scale-[1.02] transition-transform duration-300">
+                <div className="glass-card w-[400px] p-6 rounded-2xl hover:scale-[1.02] transition-transform duration-300 h-full flex flex-col justify-between">
                    <div className="flex items-start justify-between mb-4">
                         <div className="flex items-center gap-3">
-                            <img src={testimonial.avatar} alt={testimonial.name} className="w-12 h-12 rounded-full border-2 border-primary/20" />
+                            <img 
+                                src={getAvatar(testimonial.github)} 
+                                alt={testimonial.name} 
+                                className="w-12 h-12 rounded-full border-2 border-primary/20 bg-base-200" 
+                                onError={(e) => {e.target.src = "https://github.com/github.png"}}
+                            />
                             <div>
-                                <h4 className="font-bold text-base-content">{testimonial.name}</h4>
-                                <p className="text-xs text-base-content/60 font-medium">{testimonial.role}</p>
+                                <div className="flex items-center gap-2">
+                                    <h4 className="font-bold text-base-content">{testimonial.name}</h4>
+                                    <a href={getGithubLink(testimonial.github)} target="_blank" rel="noopener" className="text-base-content/40 hover:text-primary transition-colors">
+                                        <FaGithub />
+                                    </a>
+                                </div>
+                                <p className="text-xs text-base-content/60 font-medium">{testimonial.university}</p>
                             </div>
                         </div>
                         <FaQuoteLeft className="text-primary/20 text-4xl" />
                    </div>
                    
-                   <p className="text-base-content/80 leading-relaxed mb-4 text-sm">
+                   <p className="text-base-content/80 leading-relaxed mb-4 text-sm flex-grow">
                        "{testimonial.text}"
                    </p>
 
-                   <div className="flex gap-1">
-                        {[...Array(testimonial.rating)].map((_, i) => (
-                        <FaStar key={i} className="text-warning text-sm" />
-                        ))}
-                    </div>
+                   <div className="pt-4 border-t border-base-content/5 mt-auto">
+                        <div className="text-xs font-bold text-primary uppercase tracking-wide">
+                            {testimonial.course}
+                        </div>
+                   </div>
                 </div>
               </div>
             ))}
@@ -62,27 +85,37 @@ export default function Testimonials() {
            <Marquee gradient={true} gradientColor="hsl(var(--b1))" speed={30} direction="right" pauseOnHover={true}>
             {testimonials.map((testimonial, index) => (
               <div key={index} className="mx-4 my-2">
-                <div className="glass-card w-[400px] p-6 rounded-2xl hover:scale-[1.02] transition-transform duration-300">
+                <div className="glass-card w-[400px] p-6 rounded-2xl hover:scale-[1.02] transition-transform duration-300 h-full flex flex-col justify-between">
                    <div className="flex items-start justify-between mb-4">
                         <div className="flex items-center gap-3">
-                            <img src={testimonial.avatar} alt={testimonial.name} className="w-12 h-12 rounded-full border-2 border-secondary/20" />
+                            <img 
+                                src={getAvatar(testimonial.github)} 
+                                alt={testimonial.name} 
+                                className="w-12 h-12 rounded-full border-2 border-secondary/20 bg-base-200"
+                                onError={(e) => {e.target.src = "https://github.com/github.png"}}
+                            />
                             <div>
-                                <h4 className="font-bold text-base-content">{testimonial.name}</h4>
-                                <p className="text-xs text-base-content/60 font-medium">{testimonial.role}</p>
+                                <div className="flex items-center gap-2">
+                                    <h4 className="font-bold text-base-content">{testimonial.name}</h4>
+                                    <a href={getGithubLink(testimonial.github)} target="_blank" rel="noopener" className="text-base-content/40 hover:text-secondary transition-colors">
+                                        <FaGithub />
+                                    </a>
+                                </div>
+                                <p className="text-xs text-base-content/60 font-medium">{testimonial.university}</p>
                             </div>
                         </div>
                         <FaQuoteLeft className="text-secondary/20 text-4xl" />
                    </div>
                    
-                   <p className="text-base-content/80 leading-relaxed mb-4 text-sm">
+                   <p className="text-base-content/80 leading-relaxed mb-4 text-sm flex-grow">
                        "{testimonial.text}"
                    </p>
 
-                   <div className="flex gap-1">
-                        {[...Array(testimonial.rating)].map((_, i) => (
-                        <FaStar key={i} className="text-warning text-sm" />
-                        ))}
-                    </div>
+                   <div className="pt-4 border-t border-base-content/5 mt-auto">
+                         <div className="text-xs font-bold text-secondary uppercase tracking-wide">
+                            {testimonial.course}
+                        </div>
+                   </div>
                 </div>
               </div>
             ))}
