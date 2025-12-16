@@ -11,11 +11,12 @@ export default function Footer() {
         
         {/* Brand Column */}
         <div className="space-y-6">
-          <Link href="/" className="inline-block">
-            <h3 className="text-2xl font-black tracking-tight">
+          <Link href="/" className="inline-flex items-center gap-3">
+            <img src="/images/logo.png" alt="CodeRoom Logo" className="h-12 w-12 rounded-full object-cover" />
+            <span className="text-2xl font-black tracking-tight">
               <span className="gradient-text">CodeRoom</span>
               <span className="text-accent">.Online</span>
-            </h3>
+            </span>
           </Link>
           <p className="text-base-content/60 leading-relaxed max-w-xs">
             Empowering the next generation of developers with world-class education, mentorship, and career guidance.

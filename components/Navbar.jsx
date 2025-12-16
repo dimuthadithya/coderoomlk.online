@@ -41,9 +41,12 @@ export default function Navbar() {
             {/* Logo */}
             <Link
               href="/"
-              className="text-xl font-bold tracking-tight hover:opacity-80 transition-opacity"
+              className="flex items-center gap-2 hover:opacity-80 transition-opacity"
             >
-              <span className="gradient-text">CodeRoom</span>
+              <img src="/images/logo.png" alt="CodeRoom" className="h-10 w-10 rounded-full object-cover" />
+              <span className="font-bold tracking-tight text-lg">
+                <span className="gradient-text">CodeRoom</span>
+              </span>
             </Link>
 
             {/* Desktop Navigation - Centered */}
