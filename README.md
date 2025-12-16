@@ -1,7 +1,5 @@
 # CodeRoom.Online - Premium Coding Mentorship Platform
 
-# test add
-
 ## 🚀 Project Overview
 
 A high-performance, visually stunning web platform for **CodeRoom.Online**, a premium coding mentorship program in Sri Lanka. Built with **Next.js 16**, **Tailwind CSS v4**, and **DaisyUI 5**, focusing on engaging UX, glassmorphism, and data-driven content.
