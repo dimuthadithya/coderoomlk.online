@@ -1,46 +1,55 @@
 {
     "name": "Dimuth Adithya",
     "title": "Lead Instructor",
-    "image": "https://i.pravatar.cc/500?img=11",
-    "bio": "I don't just teach code; I teach how to think like an engineer. My goal is to bridge the gap between theory and industry-grade application.",
-    "about": "With years of experience building scalable applications and mentoring developers, I founded CodeRoom to provide the mentorship I wish I had when starting out.",
+    "image": "https://avatars.githubusercontent.com/u/119920915?v=4",
+    "company": {
+        "name": "Oxymai Pvt Ltd",
+        "role": "Full Stack Developer",
+        "url": "https://www.oxymai.com/"
+    },
+    "bio": "🌱 Learning React.js, exploring modern web technologies. 🔭 Enhancing skills with new tools. 💬 Discuss trends, innovations, projects.",
+    "about": "Based in Kegalle, I am passionate about bridging the gap between theory and industry-grade application. Check out my work at dimuthadithya.me",
     "stats": [
         {
             "label": "Experience",
-            "value": "5+ Years",
+            "value": "3+ Years",
             "icon": "FaChalkboardTeacher"
         },
         {
-            "label": "Mentor",
-            "value": "Top Rated",
+            "label": "Followers",
+            "value": "63+",
             "icon": "FaAward"
         },
         {
             "label": "Projects",
-            "value": "100+",
+            "value": "42+",
             "icon": "FaCode"
         }
     ],
     "skills": [
         "Full Stack Development",
+        "Chrome Extensions",
+        "React.js & Next.js",
+        "Modern Web Tech",
         "System Design",
-        "Cloud Architecture",
-        "React & Next.js Ecosystem",
-        "Database Optimization",
         "Mentorship"
     ],
     "socials": [
         {
             "platform": "github",
-            "url": "#"
+            "url": "https://github.com/dimuthadithya"
         },
         {
             "platform": "linkedin",
-            "url": "#"
+            "url": "https://www.linkedin.com/in/dimuth-adithya"
+        },
+        {
+            "platform": "medium",
+            "url": "https://medium.com/@dimuthadithya"
         },
         {
             "platform": "twitter",
-            "url": "#"
+            "url": "https://twitter.com/dimuthx353"
         }
     ]
 }

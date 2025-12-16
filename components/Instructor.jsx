@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaTwitter, FaAward, FaCode, FaChalkboardTeacher } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaTwitter, FaAward, FaCode, FaChalkboardTeacher, FaMedium } from "react-icons/fa";
 import instructorData from "@/data/instructor.json";
 
 // Map strings from JSON to React Components
@@ -10,7 +10,8 @@ const iconMap = {
   FaCode: FaCode,
   github: FaGithub,
   linkedin: FaLinkedin,
-  twitter: FaTwitter
+  twitter: FaTwitter,
+  medium: FaMedium
 };
 
 export default function Instructor() {
@@ -52,9 +53,21 @@ export default function Instructor() {
             className="lg:w-1/2"
           >
             <div className="badge badge-secondary mb-4">{title}</div>
-            <h2 className="text-4xl lg:text-5xl font-black mb-6">
+            <h2 className="text-4xl lg:text-5xl font-black mb-2">
               Meet <span className="gradient-text">{name}</span>
             </h2>
+            
+            {/* Current Role */}
+            {instructorData.company && (
+                <div className="text-lg font-medium mb-6 flex items-center gap-2">
+                    <span className="text-primary">{instructorData.company.role}</span>
+                    <span className="text-base-content/40">at</span>
+                    <a href={instructorData.company.url} target="_blank" rel="noopener noreferrer" className="link link-hover text-base-content hover:text-accent font-bold">
+                        {instructorData.company.name}
+                    </a>
+                </div>
+            )}
+
             <p className="text-xl text-base-content/70 mb-6 leading-relaxed">
               "{bio}"
             </p>
