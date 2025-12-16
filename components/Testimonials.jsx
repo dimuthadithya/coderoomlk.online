@@ -1,7 +1,8 @@
 "use client";
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Marquee from "react-fast-marquee";
-import { FaQuoteLeft, FaGithub } from "react-icons/fa";
+import { FaQuoteLeft, FaGithub, FaTimes } from "react-icons/fa";
 import testimonials from "@/data/testimonials.json";
 
 // Helper to get avatar from github link or username
@@ -13,11 +14,68 @@ const getAvatar = (github) => {
 
 // Helper for clean GitHub Link
 const getGithubLink = (github) => {
+    if (!github) return "#";
     if (github.startsWith('http')) return github;
     return `https://github.com/${github}`;
 };
 
+const TRUNCATE_LENGTH = 120;
+
 export default function Testimonials() {
+  const [selectedTestimonial, setSelectedTestimonial] = useState(null);
+
+  const TestimonialCard = ({ testimonial, color = "primary" }) => {
+    const isLong = testimonial.text.length > TRUNCATE_LENGTH;
+    const displayText = isLong ? testimonial.text.slice(0, TRUNCATE_LENGTH) + "..." : testimonial.text;
+
+    return (
+        <div className="glass-card w-[350px] h-[280px] p-6 rounded-2xl mx-4 my-4 flex flex-col justify-between hover:scale-[1.02] transition-transform duration-300 relative group">
+            <div>
+                <div className="flex items-start justify-between mb-4">
+                    <div className="flex items-center gap-3">
+                        <img 
+                            src={getAvatar(testimonial.github)} 
+                            alt={testimonial.name} 
+                            className={`w-12 h-12 rounded-full border-2 border-${color}/20 bg-base-200 object-cover`}
+                            onError={(e) => {e.target.src = "https://github.com/github.png"}}
+                        />
+                        <div className="overflow-hidden">
+                            <div className="flex items-center gap-2">
+                                <h4 className="font-bold text-base-content truncate max-w-[140px]">{testimonial.name}</h4>
+                                {testimonial.github && (
+                                    <a href={getGithubLink(testimonial.github)} target="_blank" rel="noopener" className={`text-base-content/40 hover:text-${color} transition-colors`}>
+                                        <FaGithub />
+                                    </a>
+                                )}
+                            </div>
+                            <p className="text-xs text-base-content/60 font-medium truncate">{testimonial.university}</p>
+                        </div>
+                    </div>
+                    <FaQuoteLeft className={`text-${color}/20 text-3xl shrink-0`} />
+                </div>
+                
+                <p className="text-base-content/80 text-sm leading-relaxed mb-1">
+                    "{displayText}"
+                </p>
+                {isLong && (
+                    <button 
+                        onClick={() => setSelectedTestimonial(testimonial)}
+                        className={`text-xs font-bold text-${color} hover:underline mt-1 cursor-pointer`}
+                    >
+                        See more
+                    </button>
+                )}
+            </div>
+
+            <div className="pt-4 border-t border-base-content/5 mt-auto">
+                <div className={`text-xs font-bold text-${color} uppercase tracking-wide truncate`}>
+                    {testimonial.course}
+                </div>
+            </div>
+        </div>
+    );
+  };
+
   return (
     <div className="py-24 bg-base-100 relative overflow-hidden" id="testimonials">
         
@@ -41,86 +99,82 @@ export default function Testimonials() {
       </div>
 
       {/* Infinite Marquee - Row 1 */}
-      <div className="relative z-10">
+      <div className="relative z-10 hover:pause">
           <Marquee gradient={true} gradientColor="hsl(var(--b1))" speed={40} pauseOnHover={true}>
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="mx-4 my-8">
-                <div className="glass-card w-[400px] p-6 rounded-2xl hover:scale-[1.02] transition-transform duration-300 h-full flex flex-col justify-between">
-                   <div className="flex items-start justify-between mb-4">
-                        <div className="flex items-center gap-3">
-                            <img 
-                                src={getAvatar(testimonial.github)} 
-                                alt={testimonial.name} 
-                                className="w-12 h-12 rounded-full border-2 border-primary/20 bg-base-200" 
-                                onError={(e) => {e.target.src = "https://github.com/github.png"}}
-                            />
-                            <div>
-                                <div className="flex items-center gap-2">
-                                    <h4 className="font-bold text-base-content">{testimonial.name}</h4>
-                                    <a href={getGithubLink(testimonial.github)} target="_blank" rel="noopener" className="text-base-content/40 hover:text-primary transition-colors">
-                                        <FaGithub />
-                                    </a>
-                                </div>
-                                <p className="text-xs text-base-content/60 font-medium">{testimonial.university}</p>
-                            </div>
-                        </div>
-                        <FaQuoteLeft className="text-primary/20 text-4xl" />
-                   </div>
-                   
-                   <p className="text-base-content/80 leading-relaxed mb-4 text-sm flex-grow">
-                       "{testimonial.text}"
-                   </p>
-
-                   <div className="pt-4 border-t border-base-content/5 mt-auto">
-                        <div className="text-xs font-bold text-primary uppercase tracking-wide">
-                            {testimonial.course}
-                        </div>
-                   </div>
-                </div>
-              </div>
+            {testimonials.slice(0, Math.ceil(testimonials.length / 2)).map((t, index) => (
+              <TestimonialCard key={index} testimonial={t} color="primary" />
             ))}
           </Marquee>
 
            {/* Infinite Marquee - Row 2 (Reverse) */}
            <Marquee gradient={true} gradientColor="hsl(var(--b1))" speed={30} direction="right" pauseOnHover={true}>
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="mx-4 my-2">
-                <div className="glass-card w-[400px] p-6 rounded-2xl hover:scale-[1.02] transition-transform duration-300 h-full flex flex-col justify-between">
-                   <div className="flex items-start justify-between mb-4">
-                        <div className="flex items-center gap-3">
-                            <img 
-                                src={getAvatar(testimonial.github)} 
-                                alt={testimonial.name} 
-                                className="w-12 h-12 rounded-full border-2 border-secondary/20 bg-base-200"
-                                onError={(e) => {e.target.src = "https://github.com/github.png"}}
-                            />
-                            <div>
-                                <div className="flex items-center gap-2">
-                                    <h4 className="font-bold text-base-content">{testimonial.name}</h4>
-                                    <a href={getGithubLink(testimonial.github)} target="_blank" rel="noopener" className="text-base-content/40 hover:text-secondary transition-colors">
-                                        <FaGithub />
-                                    </a>
-                                </div>
-                                <p className="text-xs text-base-content/60 font-medium">{testimonial.university}</p>
-                            </div>
-                        </div>
-                        <FaQuoteLeft className="text-secondary/20 text-4xl" />
-                   </div>
-                   
-                   <p className="text-base-content/80 leading-relaxed mb-4 text-sm flex-grow">
-                       "{testimonial.text}"
-                   </p>
-
-                   <div className="pt-4 border-t border-base-content/5 mt-auto">
-                         <div className="text-xs font-bold text-secondary uppercase tracking-wide">
-                            {testimonial.course}
-                        </div>
-                   </div>
-                </div>
-              </div>
+            {testimonials.slice(Math.ceil(testimonials.length / 2)).map((t, index) => (
+               <TestimonialCard key={index} testimonial={t} color="secondary" />
             ))}
           </Marquee>
       </div>
+
+      {/* Modal for Full Feedback */}
+      <AnimatePresence>
+        {selectedTestimonial && (
+            <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-base-100/80 backdrop-blur-md"
+                onClick={() => setSelectedTestimonial(null)}
+            >
+                <motion.div 
+                    initial={{ scale: 0.9, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    exit={{ scale: 0.9, opacity: 0 }}
+                    className="bg-base-100 border border-base-content/10 shadow-2xl w-full max-w-lg rounded-3xl p-8 relative"
+                    onClick={(e) => e.stopPropagation()}
+                >
+                    <button 
+                        onClick={() => setSelectedTestimonial(null)}
+                        className="btn btn-circle btn-sm btn-ghost absolute top-4 right-4"
+                    >
+                        <FaTimes />
+                    </button>
+
+                    <div className="flex items-center gap-4 mb-6">
+                         <img 
+                            src={getAvatar(selectedTestimonial.github)} 
+                            alt={selectedTestimonial.name} 
+                            className="w-16 h-16 rounded-full border-4 border-primary/10 object-cover"
+                            onError={(e) => {e.target.src = "https://github.com/github.png"}}
+                        />
+                        <div>
+                            <h3 className="text-xl font-bold flex items-center gap-2">
+                                {selectedTestimonial.name}
+                                {selectedTestimonial.github && (
+                                    <a href={getGithubLink(selectedTestimonial.github)} target="_blank" rel="noopener" className="text-primary text-lg">
+                                        <FaGithub />
+                                    </a>
+                                )}
+                            </h3>
+                            <p className="text-base-content/60">{selectedTestimonial.university}</p>
+                        </div>
+                    </div>
+
+                    <div className="max-h-[60vh] overflow-y-auto pr-2 custom-scrollbar">
+                        <FaQuoteLeft className="text-primary/20 text-4xl mb-4" />
+                        <p className="text-lg leading-relaxed text-base-content/90">
+                            {selectedTestimonial.text}
+                        </p>
+                    </div>
+
+                    <div className="mt-8 pt-4 border-t border-base-content/10 flex justify-between items-center text-sm font-medium">
+                        <span className="text-primary">{selectedTestimonial.course}</span>
+                        <div className="badge badge-outline">Verified Student</div>
+                    </div>
+
+                </motion.div>
+            </motion.div>
+        )}
+      </AnimatePresence>
+
     </div>
   );
 }
