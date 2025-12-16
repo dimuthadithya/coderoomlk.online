@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaTwitter, FaAward, FaCode, FaChalkboardTeacher, FaMedium } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaTwitter, FaAward, FaCode, FaChalkboardTeacher, FaMedium, FaYoutube } from "react-icons/fa";
 import instructorData from "@/data/instructor.json";
 
 // Map strings from JSON to React Components
@@ -11,7 +11,8 @@ const iconMap = {
   github: FaGithub,
   linkedin: FaLinkedin,
   twitter: FaTwitter,
-  medium: FaMedium
+  medium: FaMedium,
+  youtube: FaYoutube
 };
 
 export default function Instructor() {

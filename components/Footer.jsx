@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram, FaGithub, FaYoutube, FaHeart, FaWhatsapp } from "react-icons/fa";
+import { FaTwitter, FaLinkedin, FaGithub, FaYoutube, FaHeart, FaWhatsapp, FaMedium } from "react-icons/fa";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -23,9 +23,15 @@ export default function Footer() {
           </p>
           <div className="flex gap-4">
              {/* Socials - Clean & Uniform */}
-            {[FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaGithub].map((Icon, i) => (
-                <a key={i} href="#" className="text-base-content/40 hover:text-primary transition-colors">
-                    <Icon className="text-xl" />
+             {[
+                { Icon: FaGithub, href: "https://github.com/dimuthadithya" },
+                { Icon: FaLinkedin, href: "https://www.linkedin.com/in/dimuth-adithya" },
+                { Icon: FaMedium, href: "https://medium.com/@dimuthadithya" },
+                { Icon: FaYoutube, href: "https://www.youtube.com/channel/UCUwhddEzMtZyjnEGcBOcrGA" },
+                { Icon: FaTwitter, href: "https://twitter.com/dimuthx353" }
+             ].map((item, i) => (
+                <a key={i} href={item.href} target="_blank" rel="noopener noreferrer" className="text-base-content/40 hover:text-primary transition-colors">
+                    <item.Icon className="text-xl" />
                 </a>
             ))}
           </div>
@@ -70,7 +76,7 @@ export default function Footer() {
                 <FaWhatsapp /> Join WhatsApp Group
              </a>
              <p className="opacity-50 mt-2">
-                123 Tech Street, Colombo 03, Sri Lanka
+               Kegalle, Sri Lanka
              </p>
            </nav>
         </div>
