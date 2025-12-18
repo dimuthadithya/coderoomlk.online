@@ -1,0 +1,48 @@
+name: Update Instructor Stats
+
+on:
+  schedule:
+    # Run once a day at midnight UTC
+    - cron: '0 0 * * *'
+  # Allows manual trigger
+  workflow_dispatch:
+
+jobs:
+  update-stats:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write  # Explicitly allow write access
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18' # Needed for native 'fetch' support
+
+      # Only needed if you have external dependencies in package.json
+      # If your script uses only 'fs' and 'path', this step is optional but good practice
+      - name: Install dependencies
+        run: |
+          if [ -f package.json ]; then npm install; fi
+
+      - name: Run GitHub Stats Script
+        # ADJUST THIS PATH to match where you saved the JS file
+        run: node scripts/update-github-stats.js
+
+      - name: Commit and Push changes
+        run: |
+          git config --global user.name 'GitHub Action'
+          git config --global user.email 'action@github.com'
+          git add data/instructor.json
+          
+          # Check if there are changes before committing
+          if [[ -n $(git status -s) ]]; then
+            git commit -m "Auto-update GitHub stats for Dimuth"
+            git push
+          else
+            echo "No stats changed today. Skipping push."
+          fi

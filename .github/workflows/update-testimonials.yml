@@ -1,0 +1,40 @@
+name: Update Data Schedule
+
+on:
+  schedule:
+    # This runs every 12 hours. (Cron syntax: minute hour day month day-of-week)
+    - cron: '0 */12 * * *'
+  # Allows you to run it manually from the Actions tab for testing
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run your update script
+        run: npm run fetch-feedback
+        
+      - name: Commit and Push changes
+        run: |
+          git config --global user.name 'GitHub Action'
+          git config --global user.email 'action@github.com'
+          git add .
+          # The part below checks if there are changes before committing
+          if [[ -n $(git status -s) ]]; then
+            git commit -m "Auto-update data from Google Sheets"
+            git push
+          else
+            echo "No changes to commit. Skipping push."
+          fi
