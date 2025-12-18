@@ -1,4 +1,4 @@
-name: Update Data Schedule
+name: Update Testimonials
 
 on:
   schedule:
