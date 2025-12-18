@@ -21,7 +21,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18' # Needed for native 'fetch' support
+          node-version: '20' # Needed for native 'fetch' support
 
       # Only needed if you have external dependencies in package.json
       # If your script uses only 'fs' and 'path', this step is optional but good practice
