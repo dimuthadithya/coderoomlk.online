@@ -145,21 +145,5 @@
     "text": "i started coding beacuse of his teaching style.coding ගැන ආසාවක් ආවේ මේ class එක නිසා.therioes සරල කරලා ඕනේ කෙන්ක්ට තේරේන විදියට කියලා දෙනවා.",
     "course": "JavaScript Batch",
     "university": "SLIATE Kegalle - 2324 Batch"
-  },
-  {
-    "name": "hello",
-    "github": "dimuth",
-    "text": "test feedback",
-    "course": "",
-    "university": "",
-    "verified": false
-  },
-  {
-    "name": "test",
-    "github": "test",
-    "text": "test",
-    "course": "",
-    "university": "",
-    "verified": false
   }
 ]
