@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Marquee from 'react-fast-marquee';
-import { FaQuoteLeft, FaGithub, FaTimes, FaPaperPlane } from 'react-icons/fa';
+import { FaQuoteLeft, FaGithub, FaTimes, FaPaperPlane, FaLock } from 'react-icons/fa';
 import testimonials from '@/data/testimonials.json';
 
 // Helper to get avatar from github link or username
@@ -25,6 +25,20 @@ export default function Testimonials() {
   const [selectedTestimonial, setSelectedTestimonial] = useState(null);
 
   const TestimonialCard = ({ testimonial, color = 'primary' }) => {
+    // Check if verified is explicitly false
+    if (testimonial.verified === false) {
+      return (
+        <div className='glass-card w-[350px] h-[280px] p-6 rounded-2xl mx-4 my-4 flex flex-col items-center justify-center text-center hover:scale-[1.02] transition-transform duration-300 relative group border border-base-content/5'>
+          <div className={`w-16 h-16 rounded-full bg-${color}/10 flex items-center justify-center mb-4`}>
+            <FaLock className={`text-2xl text-${color}/60`} />
+          </div>
+          <p className='text-xs font-bold uppercase tracking-widest opacity-40'>
+            Not Verified Yet
+          </p>
+        </div>
+      );
+    }
+
     const isLong = testimonial.text.length > TRUNCATE_LENGTH;
     const displayText = isLong
       ? testimonial.text.slice(0, TRUNCATE_LENGTH) + '...'
