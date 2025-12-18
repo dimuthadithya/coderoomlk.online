@@ -38,9 +38,9 @@ export default function Navbar() {
             <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-center gap-4 text-sm font-medium">
               <span className="hidden md:inline-flex items-center gap-2"><FaRocket /> New Batch Enrolling Now! Limited Seats Available.</span>
               <span className="md:hidden flex items-center gap-2"><FaRocket /> New Batch Enrolling Now!</span>
-              <Link href="/courses" className="btn btn-xs bg-base-100 text-primary border-none hover:bg-base-200">
+              <a href="https://forms.gle/TdmiUVUeHpajcLgV7" target="_blank" rel="noopener noreferrer" className="btn btn-xs bg-base-100 text-primary border-none hover:bg-base-200">
                 Register Now
-              </Link>
+              </a>
             </div>
           </motion.div>
         )}

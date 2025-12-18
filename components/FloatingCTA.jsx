@@ -28,7 +28,7 @@ export default function FloatingCTA() {
           exit={{ opacity: 0, y: 50 }}
           className="fixed bottom-8 right-8 z-50 group cursor-pointer"
         >
-          <Link href="/courses">
+          <a href="https://forms.gle/TdmiUVUeHpajcLgV7" target="_blank" rel="noopener noreferrer">
             <div className="relative">
                 {/* Glow Effect */}
                 <div className="absolute inset-0 bg-primary/40 blur-xl rounded-full opacity-60 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
@@ -44,7 +44,7 @@ export default function FloatingCTA() {
                     </div>
                 </div>
             </div>
-          </Link>
+          </a>
         </motion.div>
       )}
     </AnimatePresence>

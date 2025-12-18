@@ -26,7 +26,7 @@ export default function Home() {
                 <h3 className="text-2xl font-bold mb-2">Full Stack Batch 03 Registrations Open!</h3>
                 <p className="opacity-70">Don't miss the chance to master the MERN stack with live mentorship.</p>
              </div>
-             <a href="/courses" className="btn btn-primary rounded-full px-8 shadow-lg z-10 shrink-0">
+             <a href="https://forms.gle/TdmiUVUeHpajcLgV7" target="_blank" rel="noopener noreferrer" className="btn btn-primary rounded-full px-8 shadow-lg z-10 shrink-0">
                 Register Now <FaArrowRight />
              </a>
         </div>

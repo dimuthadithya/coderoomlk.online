@@ -4,7 +4,7 @@ import { FaArrowRight } from "react-icons/fa";
 
 export default function Hero() {
   return (
-    <div className="hero min-h-[90vh] bg-base-100 relative overflow-hidden" id="home">
+    <div className="hero min-h-[90vh] mt-20 bg-base-100 relative overflow-hidden" id="home">
       
       {/* Minimal static background decoration */}
       <div className="absolute top-0 right-0 -translate-y-1/3 translate-x-1/3 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>

@@ -33,7 +33,7 @@ export default function CourseRegistration() {
             </p>
             
             <div className="flex flex-col md:flex-row justify-center gap-4 mb-16">
-                <a href="#register" className="btn btn-primary btn-lg rounded-full px-8 shadow-lg hover:shadow-primary/50 transition-all">
+                <a href="https://forms.gle/TdmiUVUeHpajcLgV7" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-lg rounded-full px-8 shadow-lg hover:shadow-primary/50 transition-all">
                     Register Now
                 </a>
                 <a href="#curriculum" className="btn btn-ghost btn-lg rounded-full">
