@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaBars, FaPalette, FaTimes, FaRocket, FaSun, FaMoon, FaCity, FaRobot, FaTree, FaGem } from "react-icons/fa";
+import { FaBars, FaPalette, FaTimes, FaRocket, FaSun, FaMoon, FaCity, FaTree, FaGem } from "react-icons/fa";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -106,7 +106,6 @@ export default function Navbar() {
                       { id: "light", icon: <FaSun />, label: "Light" },
                       { id: "dark", icon: <FaMoon />, label: "Dark" },
                       { id: "synthwave", icon: <FaCity />, label: "Synthwave" },
-                      { id: "cyberpunk", icon: <FaRobot />, label: "Cyberpunk" },
                       { id: "forest", icon: <FaTree />, label: "Forest" },
                       { id: "luxury", icon: <FaGem />, label: "Luxury" },
                     ].map((theme) => (
