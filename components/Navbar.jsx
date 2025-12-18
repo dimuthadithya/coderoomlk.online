@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaBars, FaPalette, FaTimes } from "react-icons/fa";
+import { FaBars, FaPalette, FaTimes, FaRocket, FaSun, FaMoon, FaCity, FaRobot, FaTree, FaGem } from "react-icons/fa";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -27,7 +27,28 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="fixed top-4 left-0 right-0 z-50 flex justify-center px-4">
+      <AnimatePresence>
+        {!isScrolled && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            className="fixed top-0 left-0 right-0 z-[60] bg-primary text-primary-content overflow-hidden"
+          >
+            <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-center gap-4 text-sm font-medium">
+              <span className="hidden md:inline-flex items-center gap-2"><FaRocket /> New Batch Enrolling Now! Limited Seats Available.</span>
+              <span className="md:hidden flex items-center gap-2"><FaRocket /> New Batch Enrolling Now!</span>
+              <Link href="/courses" className="btn btn-xs bg-base-100 text-primary border-none hover:bg-base-200">
+                Register Now
+              </Link>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <div className={`fixed left-0 right-0 z-50 flex justify-center px-4 transition-all duration-300 ${
+        !isScrolled ? "top-14" : "top-4" // Adjust top position based on banner presense
+      }`}>
         <motion.nav
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -82,16 +103,16 @@ export default function Navbar() {
                 </div>
                 <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow-2xl bg-base-100 rounded-2xl w-48 mt-4 border border-base-content/10 gap-1">
                     {[
-                      { id: "light", icon: "☀️", label: "Light" },
-                      { id: "dark", icon: "🌙", label: "Dark" },
-                      { id: "synthwave", icon: "🌆", label: "Synthwave" },
-                      { id: "cyberpunk", icon: "🤖", label: "Cyberpunk" },
-                      { id: "forest", icon: "🌲", label: "Forest" },
-                      { id: "luxury", icon: "💎", label: "Luxury" },
+                      { id: "light", icon: <FaSun />, label: "Light" },
+                      { id: "dark", icon: <FaMoon />, label: "Dark" },
+                      { id: "synthwave", icon: <FaCity />, label: "Synthwave" },
+                      { id: "cyberpunk", icon: <FaRobot />, label: "Cyberpunk" },
+                      { id: "forest", icon: <FaTree />, label: "Forest" },
+                      { id: "luxury", icon: <FaGem />, label: "Luxury" },
                     ].map((theme) => (
                       <li key={theme.id}>
                         <button data-set-theme={theme.id} className="rounded-lg text-sm font-medium">
-                          <span className="text-lg">{theme.icon}</span> {theme.label}
+                          <span className="text-lg text-primary">{theme.icon}</span> {theme.label}
                         </button>
                       </li>
                     ))}
@@ -125,7 +146,9 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed top-20 left-4 right-4 z-40 bg-base-100 rounded-3xl shadow-2xl border border-base-content/10 p-4 md:hidden"
+            className={`fixed left-4 right-4 z-40 bg-base-100 rounded-3xl shadow-2xl border border-base-content/10 p-4 md:hidden ${
+                !isScrolled ? "top-32" : "top-20" // Adjust based on banner
+            }`}
           >
             <nav className="flex flex-col gap-2">
               {navLinks.map((link) => (

@@ -178,7 +178,7 @@ export default function CourseRegistration() {
                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                          <div className="form-control">
                              <label className="label"><span className="label-text">WhatsApp Number</span></label>
-                             <input type="tel" placeholder="+94 7..." className="input input-bordered w-full" />
+                             <input type="tel" placeholder="+94 78 585 4468" className="input input-bordered w-full" />
                          </div>
                          <div className="form-control">
                              <label className="label"><span className="label-text">Current Status</span></label>

@@ -66,11 +66,11 @@ export default function Footer() {
              <a href="mailto:hello@coderoom.online" className="hover:text-primary transition-colors">
                 hello@coderoom.online
              </a>
-             <a href="tel:+94701234567" className="hover:text-primary transition-colors">
-                +94 70 123 4567
+             <a href="tel:+94785854468" className="hover:text-primary transition-colors">
+                +94 78 585 4468
              </a>
              <a 
-                href="https://wa.me/YOUR_NUMBER" 
+                href="https://wa.me/94785854468" 
                 className="inline-flex items-center gap-2 text-base-content font-medium hover:text-green-500 transition-colors"
             >
                 <FaWhatsapp /> Join WhatsApp Group

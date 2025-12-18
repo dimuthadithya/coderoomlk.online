@@ -33,7 +33,7 @@ export default function Contact() {
 
             {/* WhatsApp */}
             <motion.a
-              href="https://wa.me/YOUR_NUMBER"
+              href="https://wa.me/94785854468"
               whileHover={{ scale: 1.02, x: 5 }}
               className="card bg-gradient-to-br from-success/10 to-success/5 border-2 border-success/20 hover:border-success/40 transition-all cursor-pointer"
             >
@@ -51,7 +51,7 @@ export default function Contact() {
 
             {/* Phone */}
             <motion.a
-              href="tel:+94701234567"
+              href="tel:+94785854468"
               whileHover={{ scale: 1.02, x: 5 }}
               className="card bg-gradient-to-br from-primary/10 to-primary/5 border-2 border-primary/20 hover:border-primary/40 transition-all cursor-pointer"
             >
@@ -62,7 +62,7 @@ export default function Contact() {
                 <div className="flex-1">
                   <h4 className="font-bold text-lg">Call Us</h4>
                   <p className="text-sm opacity-70">Mon-Sat, 9 AM - 8 PM</p>
-                  <p className="text-primary font-semibold mt-1">+94 70 123 4567</p>
+                  <p className="text-primary font-semibold mt-1">+94 78 585 4468</p>
                 </div>
               </div>
             </motion.a>
@@ -117,7 +117,7 @@ export default function Contact() {
                     <label className="label">
                       <span className="label-text font-semibold">Full Name *</span>
                     </label>
-                    <input type="text" placeholder="John Doe" className="input input-bordered focus:input-primary" required />
+                    <input type="text" placeholder="John Doe" className="input input-bordered w-full focus:input-primary" required />
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -125,14 +125,14 @@ export default function Contact() {
                       <label className="label">
                         <span className="label-text font-semibold">Email *</span>
                       </label>
-                      <input type="email" placeholder="john@example.com" className="input input-bordered focus:input-primary" required />
+                      <input type="email" placeholder="john@example.com" className="input input-bordered w-full focus:input-primary" required />
                     </div>
 
                     <div className="form-control">
                       <label className="label">
                         <span className="label-text font-semibold">Phone</span>
                       </label>
-                      <input type="tel" placeholder="+94 70 123 4567" className="input input-bordered focus:input-primary" />
+                      <input type="tel" placeholder="+94 78 585 4468" className="input input-bordered w-full focus:input-primary" />
                     </div>
                   </div>
 
@@ -140,7 +140,7 @@ export default function Contact() {
                     <label className="label">
                       <span className="label-text font-semibold">Interested Course</span>
                     </label>
-                    <select className="select select-bordered focus:select-primary">
+                    <select className="select select-bordered w-full focus:select-primary" defaultValue="">
                       <option value="">Select a course</option>
                       <option>Full Stack Web Development</option>
                       <option>Frontend Mastery</option>
@@ -155,7 +155,7 @@ export default function Contact() {
                     <label className="label">
                       <span className="label-text font-semibold">Message *</span>
                     </label>
-                    <textarea className="textarea textarea-bordered h-32 focus:textarea-primary" placeholder="Tell us about your goals..." required></textarea>
+                    <textarea className="textarea textarea-bordered w-full h-32 focus:textarea-primary" placeholder="Tell us about your goals..." required></textarea>
                   </div>
 
                   <div className="form-control mt-6">
