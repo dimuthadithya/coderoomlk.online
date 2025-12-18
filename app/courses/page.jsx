@@ -149,6 +149,22 @@ export default function CourseRegistration() {
                       ))}
                   </div>
               </div>
+
+               {/* Course Intro Video */}
+               <div className="mt-16 flex flex-col items-center">
+                  <h3 className="text-2xl font-bold mb-2 text-center">Course Introduction</h3>
+                  <p className="text-lg opacity-70 mb-6 text-center">Need to learn more about the course?</p>
+                  <div className="w-full max-w-4xl glass-card p-2 rounded-2xl">
+                    <iframe 
+                        className="w-full aspect-video rounded-xl shadow-lg"
+                        src="https://www.youtube.com/embed/ZZEH2NkyE_8?si=oStbVQ6A5D8xZnGL" 
+                        title="Course Introduction Video" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerPolicy="strict-origin-when-cross-origin" 
+                        allowFullScreen
+                    ></iframe>
+                  </div>
+              </div>
           </div>
       </section>
 
