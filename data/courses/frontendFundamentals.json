@@ -1,0 +1,147 @@
+{
+    "courseTitle": "Frontend Fundamentals: HTML, CSS & Bootstrap",
+    "year": 2025,
+    "duration": "6 Months",
+    "mode": "Online",
+    "focus": "Frontend Development (No JavaScript)",
+    "targetAudience": "Campus juniors / beginners",
+    "outcomes": [
+        "Build modern responsive websites",
+        "Understand frontend industry practices",
+        "Create a professional portfolio",
+        "Deploy static websites"
+    ],
+    "modules": [
+        {
+            "module": 1,
+            "month": "Month 1",
+            "title": "Web Foundations & HTML",
+            "topics": [
+                "How the web works (browser, server, hosting)",
+                "Role of a frontend developer in 2025",
+                "HTML5 structure",
+                "Semantic HTML elements",
+                "Text, images, links, lists",
+                "Tables and forms (basic)",
+                "Accessibility basics",
+                "SEO-friendly HTML structure"
+            ],
+            "tools": [
+                "VS Code",
+                "Live Server",
+                "Chrome DevTools",
+                "GitHub (account setup)"
+            ],
+            "project": "Personal Profile Website (HTML only)"
+        },
+        {
+            "module": 2,
+            "month": "Month 2",
+            "title": "CSS Core & Modern Styling",
+            "topics": [
+                "CSS syntax and selectors",
+                "Box model",
+                "Colors, units, typography",
+                "Google Fonts",
+                "Backgrounds and gradients",
+                "Flexbox layout",
+                "CSS positioning",
+                "CSS best practices"
+            ],
+            "tools": [
+                "VS Code",
+                "CSS Peek Extension",
+                "Figma (design viewing)"
+            ],
+            "project": "Styled Portfolio Website (HTML + CSS)"
+        },
+        {
+            "module": 3,
+            "month": "Month 3",
+            "title": "Responsive Design & UI Basics",
+            "topics": [
+                "Mobile-first design",
+                "Media queries",
+                "Responsive typography",
+                "Responsive images",
+                "Common device breakpoints",
+                "UI spacing systems",
+                "Basic color psychology",
+                "Responsive accessibility"
+            ],
+            "tools": [
+                "Chrome DevTools (Device Mode)",
+                "Lighthouse"
+            ],
+            "project": "Responsive Business Website"
+        },
+        {
+            "module": 4,
+            "month": "Month 4",
+            "title": "Bootstrap for Professional UI",
+            "topics": [
+                "Bootstrap setup (CDN)",
+                "Bootstrap grid system",
+                "Containers and breakpoints",
+                "Typography and utilities",
+                "Buttons, cards, navbars",
+                "Forms and tables",
+                "Bootstrap components (HTML usage)",
+                "Customizing Bootstrap with CSS"
+            ],
+            "tools": [
+                "Bootstrap Documentation",
+                "Browser DevTools"
+            ],
+            "project": "Company Landing Page using Bootstrap"
+        },
+        {
+            "module": 5,
+            "month": "Month 5",
+            "title": "Advanced Frontend Practices (No JS)",
+            "topics": [
+                "CSS variables",
+                "Reusable UI components",
+                "Frontend folder structure",
+                "Naming conventions (BEM intro)",
+                "Image optimization",
+                "SEO basics for frontend",
+                "Web accessibility (WCAG basics)",
+                "Dark mode using CSS"
+            ],
+            "tools": [
+                "Git",
+                "GitHub",
+                "GitHub Pages / Firebase Hosting"
+            ],
+            "project": "Multi-page Website (5–7 pages)"
+        },
+        {
+            "module": 6,
+            "month": "Month 6",
+            "title": "SCSS, Git & AI for Frontend Developers",
+            "topics": [
+                "SCSS syntax, variables and nesting",
+                "Partials, mixins and functions",
+                "SCSS folder architecture",
+                "Using SCSS with Bootstrap",
+                "Compiling SCSS to CSS",
+                "Git basics for frontend developers",
+                "Git workflow (init, commit, branch, merge)",
+                "Working with GitHub repositories",
+                "Using AI for UI ideas and layout inspiration",
+                "Using AI to improve HTML semantics",
+                "Using AI for CSS optimization and refactoring",
+                "AI-assisted accessibility and SEO checks"
+            ],
+            "tools": [
+                "Sass (CLI)",
+                "Git",
+                "GitHub",
+                "VS Code",
+                "AI tools (ChatGPT, design assistants)"
+            ],
+            "project": "Refactor Existing Website using SCSS, Git & AI Assistance"
+        }
+    ]
+}
