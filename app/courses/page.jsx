@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Testimonials from "@/components/Testimonials"; // Reusing success stories
 import { motion } from "framer-motion";
-import { FaCalendarAlt, FaClock, FaVideo, FaChalkboardTeacher, FaCheckCircle, FaWhatsapp, FaCode, FaTools, FaProjectDiagram } from "react-icons/fa";
+import { FaCalendarAlt, FaClock, FaVideo, FaChalkboardTeacher, FaCheckCircle, FaWhatsapp, FaCode, FaTools, FaProjectDiagram, FaMoneyBillWave } from "react-icons/fa";
 import courseData from "@/data/courses/frontendFundamentals.json";
 
 export default function CourseRegistration() {
@@ -42,14 +42,15 @@ export default function CourseRegistration() {
             </div>
 
             {/* Quick Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+            <div className="flex flex-wrap justify-center gap-4 md:gap-6 max-w-5xl mx-auto">
                 {[
                     { icon: FaCalendarAlt, label: "Start Date", val: "Coming Soon" },
                     { icon: FaClock, label: "Duration", val: courseData.duration },
+                    { icon: FaMoneyBillWave, label: "Monthly Fee", val: "1500 LKR" },
                     { icon: FaVideo, label: "Mode", val: courseData.mode },
-                    { icon: FaChalkboardTeacher, label: "Language", val: "Sinhala/English" }
+                    { icon: FaChalkboardTeacher, label: "Language", val: "Sinhala" }
                 ].map((item, i) => (
-                    <div key={i} className="glass-card p-4 rounded-2xl flex flex-col items-center">
+                    <div key={i} className="glass-card p-4 rounded-2xl flex flex-col items-center w-36 md:w-48">
                         <item.icon className="text-2xl text-primary mb-2" />
                         <div className="font-bold text-lg">{item.val}</div>
                         <div className="text-xs opacity-60">{item.label}</div>
@@ -158,45 +159,26 @@ export default function CourseRegistration() {
       <section className="py-24 relative" id="register">
          <div className="max-w-4xl mx-auto px-4">
              <div className="glass-card p-8 md:p-12 rounded-3xl border border-primary/20 bg-gradient-to-br from-base-100 to-base-200">
-                 <div className="text-center mb-10">
-                     <h2 className="text-4xl font-black mb-4">Secure Your Spot</h2>
-                     <p className="opacity-70">Limited seats available for the upcoming batch. Fill out the form below to join the waitlist.</p>
-                 </div>
-
-                 <form className="space-y-6">
-                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                         <div className="form-control">
-                             <label className="label"><span className="label-text">Full Name</span></label>
-                             <input type="text" placeholder="John Doe" className="input input-bordered w-full" />
-                         </div>
-                         <div className="form-control">
-                             <label className="label"><span className="label-text">Email Address</span></label>
-                             <input type="email" placeholder="john@example.com" className="input input-bordered w-full" />
-                         </div>
-                     </div>
+                 <div className="text-center">
+                     <h2 className="text-4xl font-black mb-6">Secure Your Spot</h2>
+                     <p className="opacity-70 text-lg mb-10 max-w-2xl mx-auto">
+                        Limited seats available for the upcoming batch. Click the button below to complete your registration via our official form.
+                     </p>
                      
-                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                         <div className="form-control">
-                             <label className="label"><span className="label-text">WhatsApp Number</span></label>
-                             <input type="tel" placeholder="+94 78 585 4468" className="input input-bordered w-full" />
-                         </div>
-                         <div className="form-control">
-                             <label className="label"><span className="label-text">Current Status</span></label>
-                             <select className="select select-bordered w-full" defaultValue="default">
-                                 <option disabled value="default">Select one</option>
-                                 <option>Student</option>
-                                 <option>Working Professional</option>
-                                 <option>Freelancer</option>
-                                 <option>Other</option>
-                             </select>
-                         </div>
+                     <div className="flex justify-center">
+                        <a 
+                            href="https://forms.gle/TdmiUVUeHpajcLgV7" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="btn btn-primary btn-lg px-12 text-lg rounded-full shadow-xl hover:shadow-primary/30 transition-all gap-3"
+                        >
+                            Register Now <FaCheckCircle />
+                        </a>
                      </div>
-
-                     <div className="form-control mt-6">
-                         <button className="btn btn-primary btn-lg w-full text-lg">Register Interest <FaCheckCircle /></button>
-                         <p className="text-xs text-center mt-4 opacity-50">We will simple contact you via WhatsApp for the next steps.</p>
-                     </div>
-                 </form>
+                     <p className="text-sm text-center mt-6 opacity-50">
+                        You will be redirected to our secure Google Form.
+                     </p>
+                 </div>
              </div>
          </div>
       </section>
