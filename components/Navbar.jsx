@@ -36,8 +36,8 @@ export default function Navbar() {
             className="fixed top-0 left-0 right-0 z-[60] bg-primary text-primary-content overflow-hidden"
           >
             <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-center gap-4 text-sm font-medium">
-              <span className="hidden md:inline-flex items-center gap-2"><FaRocket /> New Batch Enrolling Now! Limited Seats Available.</span>
-              <span className="md:hidden flex items-center gap-2"><FaRocket /> New Batch Enrolling Now!</span>
+              <span className="hidden md:inline-flex items-center gap-2"> New Batch Enrolling Now! Limited Seats Available.</span>
+              <span className="md:hidden flex items-center gap-2"> New Batch Enrolling Now!</span>
               <a href="https://forms.gle/TdmiUVUeHpajcLgV7" target="_blank" rel="noopener noreferrer" className="btn btn-xs bg-base-100 text-primary border-none hover:bg-base-200">
                 Register Now
               </a>
