@@ -30,8 +30,7 @@ jobs:
           if [ -f package.json ]; then npm install; fi
 
       - name: Run GitHub Stats Script
-        # ADJUST THIS PATH to match where you saved the JS file
-        run: node scripts/update-github-stats.js
+        run: npm run update-profile
 
       - name: Commit and Push changes
         run: |
