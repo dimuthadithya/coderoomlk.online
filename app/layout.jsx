@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ThemeProvider from "@/components/ThemeProvider";
+import MicrosoftClarity from "@/components/MicrosoftClarity";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -65,6 +66,7 @@ export default function RootLayout({ children }) {
         suppressHydrationWarning
       >
         <ThemeProvider>{children}</ThemeProvider>
+        <MicrosoftClarity />
       </body>
     </html>
   );

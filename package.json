@@ -11,6 +11,7 @@
     "fetch-feedback": "node scripts/fetch-sheet.js"
   },
   "dependencies": {
+    "@microsoft/clarity": "^1.0.2",
     "clsx": "^2.1.1",
     "daisyui": "^5.5.14",
     "framer-motion": "^12.23.26",
