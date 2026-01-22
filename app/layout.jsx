@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  metadataBase: new URL('https://coderoom.online'),
+  metadataBase: new URL('https:coderoomlk.online'),
   title: {
     default: 'CodeRoom.Online | Master Full Stack Development',
     template: '%s | CodeRoom.Online',
@@ -48,7 +48,7 @@ export const metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://coderoom.online',
+    url: 'https://coderoomlk.online',
     title: 'CodeRoom.Online | Master Full Stack Development',
     description:
       'Project-based learning, 1:1 mentorship, and career guidance for aspiring developers in Sri Lanka.',

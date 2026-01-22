@@ -10,7 +10,7 @@ export const metadata = {
     title: 'Contact Us - CodeRoom.Online',
     description:
       'Get in touch with our team for questions, support, or custom training.',
-    url: 'https://coderoom.online/contact',
+    url: 'https:coderoomlk.online/contact',
     siteName: 'CodeRoom.Online',
     images: [
       {

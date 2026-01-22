@@ -5,6 +5,6 @@ export default function robots() {
       allow: '/',
       disallow: '/private/',
     },
-    sitemap: 'https://coderoom.online/sitemap.xml',
+    sitemap: 'https:coderoomlk.online/sitemap.xml',
   };
 }

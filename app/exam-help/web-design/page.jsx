@@ -11,7 +11,7 @@ export const metadata = {
     title: 'Web Design Exam Help - CodeRoom',
     description:
       'Join our live Web Design exam help session for 1st year students.',
-    url: 'https://coderoom.online/exam-help/web-design',
+    url: 'https:coderoomlk.online/exam-help/web-design',
     siteName: 'CodeRoom.Online',
     images: [
       {
