@@ -94,7 +94,7 @@ export default function Navbar() {
                 className='h-10 w-10 rounded-full object-cover'
               />
               <span className='font-bold tracking-tight text-lg'>
-                <span className='gradient-text'>CodeRoom</span>
+                <span className='gradient-text'>CodeRoomLK</span>
               </span>
             </Link>
 
