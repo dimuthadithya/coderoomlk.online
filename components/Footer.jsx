@@ -172,39 +172,38 @@ export default function Footer() {
           </a>
           <a href='#' className='hover:text-base-content/80'>
             Terms of Service
-
-      {/* QR Code Modal */}
-      {showQR && (
-        <div
-          className='fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4'
-          onClick={() => setShowQR(false)}
-        >
-          <div
-            className='bg-white p-4 rounded-2xl max-w-md w-full relative animate-in fade-in zoom-in duration-200'
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              onClick={() => setShowQR(false)}
-              className='absolute top-2 right-2 btn btn-circle btn-sm btn-ghost text-black'
-            >
-              ✕
-            </button>
-            <h3 className='text-center text-black font-bold text-xl mb-4'>
-              Join Community
-            </h3>
-            <div className='w-full bg-white flex items-center justify-center overflow-hidden'>
-              <img
-                src='/images/qr.png'
-                alt='WhatsApp Community QR Large'
-                className='max-w-full max-h-[60vh] w-auto h-auto object-contain'
-              />
-            </div>
-            <p className='text-center text-gray-500 mt-4 text-sm'>
-              Scan with WhatsApp to join
-            </p>
-          </div>
-        </div>
-      )}
+            {/* QR Code Modal */}
+            {showQR && (
+              <div
+                className='fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4'
+                onClick={() => setShowQR(false)}
+              >
+                <div
+                  className='bg-white p-4 rounded-2xl max-w-md w-full relative animate-in fade-in zoom-in duration-200'
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <button
+                    onClick={() => setShowQR(false)}
+                    className='absolute top-2 right-2 btn btn-circle btn-sm btn-ghost text-black'
+                  >
+                    ✕
+                  </button>
+                  <h3 className='text-center text-black font-bold text-xl mb-4'>
+                    Join Community
+                  </h3>
+                  <div className='w-full bg-white flex items-center justify-center overflow-hidden'>
+                    <img
+                      src='/images/qr.png'
+                      alt='WhatsApp Community QR Large'
+                      className='max-w-full max-h-[60vh] w-auto h-auto object-contain'
+                    />
+                  </div>
+                  <p className='text-center text-gray-500 mt-4 text-sm'>
+                    Scan with WhatsApp to join
+                  </p>
+                </div>
+              </div>
+            )}
           </a>
         </div>
       </div>
