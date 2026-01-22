@@ -21,7 +21,6 @@ export default function WebDesignExamHelpPage() {
         sessionDate='Saturday, January 24th'
         sessionTime='8:30 AM onwards'
         formLink='https://forms.gle/RVdDEResW3esTYNAA'
-        registrationCount={84}
       />
       <Footer />
     </>
