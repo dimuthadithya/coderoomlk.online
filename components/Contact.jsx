@@ -1,178 +1,192 @@
-"use client";
-import { motion } from "framer-motion";
-import { FaWhatsapp, FaEnvelope, FaPhone, FaMapMarkerAlt, FaPaperPlane } from "react-icons/fa";
+'use client';
+import {
+  FaWhatsapp,
+  FaEnvelope,
+  FaPhone,
+  FaMapMarkerAlt,
+  FaPaperPlane,
+  FaUsers,
+  FaArrowRight,
+} from 'react-icons/fa';
 
 export default function Contact() {
   return (
-    <div className="py-24 bg-base-200" id="contact">
-      <div className="max-w-7xl mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <div className="badge badge-accent badge-lg mb-4">Get In Touch</div>
-          <h2 className="text-4xl lg:text-6xl font-black mb-4">
-            <span className="gradient-text">Start Your Journey Today</span>
+    <div className='py-20 bg-base-100' id='contact'>
+      <div className='max-w-7xl mx-auto px-4'>
+        {/* Header - Minimal & Clean */}
+        <div className='text-center mb-20'>
+          <h2 className='text-xs font-bold uppercase tracking-[0.2em] opacity-40 mb-4'>
+            Contact Us
           </h2>
-          <p className="text-xl text-base-content/70 max-w-2xl mx-auto">
-            Have questions? We're here to help you choose the right path.
+          <h1 className='text-4xl lg:text-5xl font-black mb-6'>
+            Let&apos;s Start a{' '}
+            <span className='text-primary'>Conversation</span>
+          </h1>
+          <p className='text-xl text-base-content/60 max-w-2xl mx-auto font-light leading-relaxed'>
+            Whether you have questions about our courses, need career guidance,
+            or just want to say hello, we&apos;re here for you.
           </p>
-        </motion.div>
+        </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Cards */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="space-y-6"
-          >
-            <h3 className="text-2xl font-bold mb-6">Connect With Us</h3>
+        <div className='grid lg:grid-cols-12 gap-12 items-start'>
+          {/* Contact Info Column (Left - 5 Cols) */}
+          <div className='lg:col-span-5 space-y-8'>
+            <div className='space-y-6'>
+              <h3 className='text-xl font-bold mb-6'>Direct Channels</h3>
 
-            {/* WhatsApp */}
-            <motion.a
-              href="https://wa.me/94785854468"
-              whileHover={{ scale: 1.02, x: 5 }}
-              className="card bg-gradient-to-br from-success/10 to-success/5 border-2 border-success/20 hover:border-success/40 transition-all cursor-pointer"
-            >
-              <div className="card-body flex-row items-center gap-4">
-                <div className="bg-success/20 p-4 rounded-2xl">
-                  <FaWhatsapp className="text-3xl text-success" />
+              {/* Support WhatsApp */}
+              <a
+                href='https://wa.me/94785854468'
+                target='_blank'
+                rel='noopener noreferrer'
+                className='flex items-center gap-5 p-6 bg-base-100 border border-base-content/10 rounded-2xl hover:border-primary/30 hover:shadow-lg hover:-translate-y-1 transition-all group'
+              >
+                <div className='w-12 h-12 bg-success/10 rounded-full flex items-center justify-center text-success group-hover:bg-success group-hover:text-white transition-colors'>
+                  <FaWhatsapp className='text-2xl' />
                 </div>
-                <div className="flex-1">
-                  <h4 className="font-bold text-lg">WhatsApp Community</h4>
-                  <p className="text-sm opacity-70">Join 500+ students</p>
-                  <p className="text-success font-semibold mt-1">Click to Join →</p>
+                <div>
+                  <h4 className='font-bold text-base'>WhatsApp Support</h4>
+                  <p className='text-sm opacity-60'>Chat with our team</p>
+                  <p className='text-sm font-semibold mt-1 group-hover:text-success transition-colors'>
+                    +94 78 585 4468
+                  </p>
                 </div>
-              </div>
-            </motion.a>
+              </a>
 
-            {/* Phone */}
-            <motion.a
-              href="tel:+94785854468"
-              whileHover={{ scale: 1.02, x: 5 }}
-              className="card bg-gradient-to-br from-primary/10 to-primary/5 border-2 border-primary/20 hover:border-primary/40 transition-all cursor-pointer"
-            >
-              <div className="card-body flex-row items-center gap-4">
-                <div className="bg-primary/20 p-4 rounded-2xl">
-                  <FaPhone className="text-3xl text-primary" />
+              {/* Course Community */}
+              <a
+                href='https://chat.whatsapp.com/Lvkuo7WmBDK3h2TxFS7xmd'
+                target='_blank'
+                rel='noopener noreferrer'
+                className='flex items-center gap-5 p-6 bg-base-100 border border-base-content/10 rounded-2xl hover:border-accent/30 hover:shadow-lg hover:-translate-y-1 transition-all group'
+              >
+                <div className='w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-colors'>
+                  <FaUsers className='text-2xl' />
                 </div>
-                <div className="flex-1">
-                  <h4 className="font-bold text-lg">Call Us</h4>
-                  <p className="text-sm opacity-70">Mon-Sat, 9 AM - 8 PM</p>
-                  <p className="text-primary font-semibold mt-1">+94 78 585 4468</p>
+                <div>
+                  <h4 className='font-bold text-base'>Student Community</h4>
+                  <p className='text-sm opacity-60'>Join 500+ developers</p>
+                  <p className='text-sm font-semibold mt-1 group-hover:text-accent transition-colors flex items-center gap-1'>
+                    Join Group <FaArrowRight className='text-xs' />
+                  </p>
                 </div>
-              </div>
-            </motion.a>
+              </a>
 
-            {/* Email */}
-            <motion.a
-              href="mailto:hello@coderoom.online"
-              whileHover={{ scale: 1.02, x: 5 }}
-              className="card bg-gradient-to-br from-secondary/10 to-secondary/5 border-2 border-secondary/20 hover:border-secondary/40 transition-all cursor-pointer"
-            >
-              <div className="card-body flex-row items-center gap-4">
-                <div className="bg-secondary/20 p-4 rounded-2xl">
-                  <FaEnvelope className="text-3xl text-secondary" />
+              {/* Email */}
+              <a
+                href='mailto:hello@coderoom.online'
+                className='flex items-center gap-5 p-6 bg-base-100 border border-base-content/10 rounded-2xl hover:border-secondary/30 hover:shadow-lg hover:-translate-y-1 transition-all group'
+              >
+                <div className='w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-white transition-colors'>
+                  <FaEnvelope className='text-xl' />
                 </div>
-                <div className="flex-1">
-                  <h4 className="font-bold text-lg">Email Us</h4>
-                  <p className="text-sm opacity-70">We'll respond within 24h</p>
-                  <p className="text-secondary font-semibold mt-1">hello@coderoom.online</p>
+                <div>
+                  <h4 className='font-bold text-base'>Email Questions</h4>
+                  <p className='text-sm opacity-60'>Response within 24h</p>
+                  <p className='text-sm font-semibold mt-1 group-hover:text-secondary transition-colors'>
+                    hello@coderoom.online
+                  </p>
                 </div>
-              </div>
-            </motion.a>
+              </a>
 
-            {/* Location */}
-            <motion.div
-              whileHover={{ scale: 1.02, x: 5 }}
-              className="card bg-gradient-to-br from-accent/10 to-accent/5 border-2 border-accent/20"
-            >
-              <div className="card-body flex-row items-center gap-4">
-                <div className="bg-accent/20 p-4 rounded-2xl">
-                  <FaMapMarkerAlt className="text-3xl text-accent" />
+              {/* Location - Simple Text */}
+              <div className='flex items-start gap-5 p-6 border border-transparent opacity-60'>
+                <FaMapMarkerAlt className='text-xl mt-1' />
+                <div>
+                  <h4 className='font-bold text-base'>Based In</h4>
+                  <p className='text-sm leading-relaxed'>
+                    Kegalle, Sri Lanka
+                    <br />
+                    Available Worldwide Online
+                  </p>
                 </div>
-                <div className="flex-1">
-                  <h4 className="font-bold text-lg">Visit Us</h4>
-                  <p className="text-sm opacity-70">Colombo, Sri Lanka</p>
-                  <p className="text-accent font-semibold mt-1">Get Directions →</p>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-
-          {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
-            <div className="card bg-base-100 shadow-2xl">
-              <div className="card-body">
-                <h3 className="card-title text-2xl mb-6">Send us a Message</h3>
-                <form className="space-y-4">
-                  <div className="form-control">
-                    <label className="label">
-                      <span className="label-text font-semibold">Full Name *</span>
-                    </label>
-                    <input type="text" placeholder="John Doe" className="input input-bordered w-full focus:input-primary" required />
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="form-control">
-                      <label className="label">
-                        <span className="label-text font-semibold">Email *</span>
-                      </label>
-                      <input type="email" placeholder="john@example.com" className="input input-bordered w-full focus:input-primary" required />
-                    </div>
-
-                    <div className="form-control">
-                      <label className="label">
-                        <span className="label-text font-semibold">Phone</span>
-                      </label>
-                      <input type="tel" placeholder="+94 78 585 4468" className="input input-bordered w-full focus:input-primary" />
-                    </div>
-                  </div>
-
-                  <div className="form-control">
-                    <label className="label">
-                      <span className="label-text font-semibold">Interested Course</span>
-                    </label>
-                    <select className="select select-bordered w-full focus:select-primary" defaultValue="">
-                      <option value="">Select a course</option>
-                      <option>Full Stack Web Development</option>
-                      <option>Frontend Mastery</option>
-                      <option>Backend Engineering</option>
-                      <option>Python Full Stack</option>
-                      <option>Mobile App Development</option>
-                      <option>Database & DevOps</option>
-                    </select>
-                  </div>
-
-                  <div className="form-control">
-                    <label className="label">
-                      <span className="label-text font-semibold">Message *</span>
-                    </label>
-                    <textarea className="textarea textarea-bordered w-full h-32 focus:textarea-primary" placeholder="Tell us about your goals..." required></textarea>
-                  </div>
-
-                  <div className="form-control mt-6">
-                    <motion.button
-                      type="submit"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="btn btn-primary btn-lg w-full gap-2"
-                    >
-                      <FaPaperPlane />
-                      Send Message
-                    </motion.button>
-                  </div>
-                </form>
               </div>
             </div>
-          </motion.div>
+          </div>
+
+          {/* Contact Form Column (Right - 7 Cols) */}
+          <div className='lg:col-span-7'>
+            <div className='bg-base-200/50 p-8 md:p-10 rounded-3xl border border-base-content/5'>
+              <h3 className='text-2xl font-bold mb-8'>Send a Message</h3>
+              <form className='space-y-6'>
+                <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+                  <div className='form-control w-full'>
+                    <label className='label uppercase text-xs font-bold opacity-60'>
+                      Full Name
+                    </label>
+                    <input
+                      type='text'
+                      placeholder='John Doe'
+                      className='input input-lg bg-base-100 border-transparent focus:border-primary focus:outline-none w-full text-base rounded-xl'
+                      required
+                    />
+                  </div>
+                  <div className='form-control w-full'>
+                    <label className='label uppercase text-xs font-bold opacity-60'>
+                      Email Address
+                    </label>
+                    <input
+                      type='email'
+                      placeholder='john@example.com'
+                      className='input input-lg bg-base-100 border-transparent focus:border-primary focus:outline-none w-full text-base rounded-xl'
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+                  <div className='form-control w-full'>
+                    <label className='label uppercase text-xs font-bold opacity-60'>
+                      Phone Number
+                    </label>
+                    <input
+                      type='tel'
+                      placeholder='+94 7X XXX XXXX'
+                      className='input input-lg bg-base-100 border-transparent focus:border-primary focus:outline-none w-full text-base rounded-xl'
+                    />
+                  </div>
+                  <div className='form-control w-full'>
+                    <label className='label uppercase text-xs font-bold opacity-60'>
+                      Interested Item
+                    </label>
+                    <select
+                      className='select select-lg bg-base-100 border-transparent focus:border-primary focus:outline-none w-full text-base rounded-xl font-normal'
+                      defaultValue=''
+                    >
+                      <option value='' disabled>
+                        Select a topic
+                      </option>
+                      <option>Full Stack Course</option>
+                      <option>Web Design Helper</option>
+                      <option>General Inquiry</option>
+                      <option>Support Issue</option>
+                      <option>Partnership</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className='form-control w-full'>
+                  <label className='label uppercase text-xs font-bold opacity-60'>
+                    Your Message
+                  </label>
+                  <textarea
+                    className='textarea textarea-lg bg-base-100 border-transparent focus:border-primary focus:outline-none w-full text-base min-h-[150px] rounded-xl leading-relaxed'
+                    placeholder='How can we help you today?'
+                    required
+                  ></textarea>
+                </div>
+
+                <div className='pt-4'>
+                  <button
+                    type='submit'
+                    className='btn btn-primary btn-lg w-full md:w-auto px-10 rounded-xl font-bold shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-1 transition-all'
+                  >
+                    Send Message <FaPaperPlane className='ml-2 text-sm' />
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </div>

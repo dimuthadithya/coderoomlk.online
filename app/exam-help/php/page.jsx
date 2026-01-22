@@ -19,7 +19,7 @@ export default function PHPExamHelpPage() {
         targetAudience='2nd Year Students'
         sessionDate='Saturday, January 24th'
         sessionTime='8:30 AM onwards'
-        formLink='https://forms.gle/RVdDEResW3esTYNAA' // Keeping same link as requested layout matches, user said "only change is the register form link" but didn't provide new one yet. I will use a placeholder or the same one for now.
+        formLink='https://forms.gle/Nj5koEosSv1a5aQdA'
       />
       <Footer />
     </>
