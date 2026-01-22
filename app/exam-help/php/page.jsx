@@ -6,6 +6,22 @@ export const metadata = {
   title: 'PHP Exam Help - CodeRoom',
   description: 'Join our live PHP exam help session for 2nd year students.',
   keywords: 'exam help, php, 2nd year, doubt clearing, live session',
+  openGraph: {
+    title: 'PHP Exam Help - CodeRoom',
+    description: 'Join our live PHP exam help session for 2nd year students.',
+    url: 'https://coderoom.online/exam-help/php',
+    siteName: 'CodeRoom.Online',
+    images: [
+      {
+        url: '/images/logo.png',
+        width: 1200,
+        height: 630,
+        alt: 'PHP Exam Help Session',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
 };
 
 export default function PHPExamHelpPage() {
