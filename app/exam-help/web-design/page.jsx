@@ -30,15 +30,15 @@ export default function WebDesignExamHelpPage() {
   return (
     <>
       <Navbar />
-      <ExamSession
-        title='Web Design Exam Help'
-        subtitle='Last-Minute Session'
-        description='Get ready for your Web Design exam. This session focuses on HTML, CSS, and responsive design principles for 1st Year students.'
-        targetAudience='1st Year Students'
-        sessionDate='Saturday, January 24th'
-        sessionTime='8:30 AM onwards'
-        formLink='https://forms.gle/RVdDEResW3esTYNAA'
-      />
+      <div className='min-h-[70vh] flex flex-col items-center justify-center p-4 text-center'>
+        <h1 className='text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary mb-4'>
+          Coming Soon
+        </h1>
+        <p className='text-xl text-base-content/70 max-w-lg'>
+          The Web Design Exam Help session details are being finalized. Please
+          check back later.
+        </p>
+      </div>
       <Footer />
     </>
   );
