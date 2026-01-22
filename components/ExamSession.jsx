@@ -154,15 +154,21 @@ export default function ExamSession({
             </p>
           </div>
 
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16'>
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-base-content/10 border-y border-base-content/10 mb-16'>
             {sessionDetails.map((detail, index) => (
               <div
                 key={index}
-                className='bg-base-200/30 border border-base-content/10 p-6'
+                className='flex flex-col items-center text-center p-8 hover:bg-base-content/[0.02] transition-colors'
               >
-                <div className={`text-${detail.color} mb-4`}>{detail.icon}</div>
-                <h3 className='text-lg font-bold mb-2'>{detail.title}</h3>
-                <p className='text-sm opacity-70 leading-relaxed'>
+                <div
+                  className={`text-${detail.color} mb-5 opacity-90 scale-110`}
+                >
+                  {detail.icon}
+                </div>
+                <h3 className='text-xs font-bold uppercase tracking-widest opacity-50 mb-3'>
+                  {detail.title}
+                </h3>
+                <p className='text-lg font-medium leading-relaxed max-w-[250px]'>
                   {detail.description}
                 </p>
               </div>
