@@ -15,10 +15,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  metadataBase: new URL('https:coderoomlk.online'),
+  metadataBase: new URL('https://coderoomlk.online'),
   title: {
     default: 'CodeRoom.Online | Master Full Stack Development',
     template: '%s | CodeRoom.Online',
+  },
+  other: {
+    'og:logo': 'https://coderoomlk.online/images/logo.png',
   },
   description:
     "Become a production-ready developer in 6 months. Join Sri Lanka's premium mentorship program for React, Next.js, and Modern Web Technologies lead by Dimuth Adithya.",
