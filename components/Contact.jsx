@@ -74,7 +74,7 @@ export default function Contact() {
 
               {/* Email */}
               <a
-                href='mailto:hello@coderoom.online'
+                href='mailto:admin@coderoomlk.online'
                 className='flex items-center gap-5 p-6 bg-base-100 border border-base-content/10 rounded-2xl hover:border-secondary/30 hover:shadow-lg hover:-translate-y-1 transition-all group'
               >
                 <div className='w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-white transition-colors'>
@@ -84,7 +84,7 @@ export default function Contact() {
                   <h4 className='font-bold text-base'>Email Questions</h4>
                   <p className='text-sm opacity-60'>Response within 24h</p>
                   <p className='text-sm font-semibold mt-1 group-hover:text-secondary transition-colors'>
-                    hello@coderoom.online
+                    admin@coderoomlk.online
                   </p>
                 </div>
               </a>

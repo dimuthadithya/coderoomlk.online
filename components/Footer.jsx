@@ -127,10 +127,10 @@ export default function Footer() {
           <h6 className='font-bold text-lg mb-6'>Get in Touch</h6>
           <nav className='flex flex-col gap-4 text-base-content/60'>
             <a
-              href='mailto:hello@coderoom.online'
+              href='mailto:admin@coderoomlk.online'
               className='hover:text-primary transition-colors'
             >
-              hello@coderoom.online
+              admin@coderoomlk.online
             </a>
             <a
               href='tel:+94785854468'
