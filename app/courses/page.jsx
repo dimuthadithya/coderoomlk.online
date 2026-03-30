@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { db } from "@/lib/firebase";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import Navbar from "@/components/Navbar";
@@ -41,8 +41,8 @@ function FloatingInput({ label, name, type = "text", icon: Icon, required, form,
 }
 
 export default function CourseRegistration() {
-    const [isSliate, setIsSliate] = useState(false);
     const [step, setStep] = useState(0);
+    const formRef = useRef(null);
     const [submitted, setSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -54,14 +54,23 @@ export default function CourseRegistration() {
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
         setForm(prev => ({ ...prev, [name]: type === "checkbox" ? checked : value }));
-        if (name === "sliate") setIsSliate(checked);
     };
 
-    const handleNext = () => { if (step < STEPS.length - 1) setStep(s => s + 1); };
+    const handleNext = () => { 
+        if (formRef.current && !formRef.current.reportValidity()) return;
+        if (step < STEPS.length - 1) setStep(s => s + 1); 
+    };
     const handleBack = () => { if (step > 0) setStep(s => s - 1); };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        
+        // If user hits 'Enter' on early steps, just go to the next step, don't submit!
+        if (step < STEPS.length - 1) {
+            handleNext();
+            return;
+        }
+
         setLoading(true);
         setError(null);
         try {
@@ -70,8 +79,8 @@ export default function CourseRegistration() {
                 lastName: form.lastName.trim(),
                 email: form.email.trim().toLowerCase(),
                 whatsapp: form.whatsapp.trim(),
-                isSliate: isSliate,
-                atiLocation: isSliate ? form.atiLocation.trim() : null,
+                isSliate: form.atiLocation.trim().length > 0,
+                atiLocation: form.atiLocation.trim() || null,
                 batch: "Batch 03",
                 registeredAt: serverTimestamp(),
             });
@@ -389,7 +398,7 @@ export default function CourseRegistration() {
                                             </div>
 
                                             {/* Step Content — Animated */}
-                                            <form onSubmit={handleSubmit}>
+                                            <form ref={formRef} onSubmit={handleSubmit}>
                                                 <AnimatePresence mode="wait" custom={step}>
                                                     {step === 0 && (
                                                         <motion.div
@@ -405,7 +414,7 @@ export default function CourseRegistration() {
                                                                 <p className="text-sm opacity-50 mt-1">Let's start with the basics.</p>
                                                             </div>
                                                             <FloatingInput label="First Name" name="firstName" icon={FaUser} required form={form} focused={focused} handleChange={handleChange} setFocused={setFocused} />
-                                                            <FloatingInput label="Last Name" name="lastName" icon={FaUser} required form={form} focused={focused} handleChange={handleChange} setFocused={setFocused} />
+                                                            <FloatingInput label="Last Name (Optional)" name="lastName" icon={FaUser} form={form} focused={focused} handleChange={handleChange} setFocused={setFocused} />
                                                         </motion.div>
                                                     )}
                                                     {step === 1 && (
@@ -439,46 +448,16 @@ export default function CourseRegistration() {
                                                                 <p className="text-sm opacity-50 mt-1">Are you eligible for a SLIATE discount?</p>
                                                             </div>
 
-                                                            {/* SLIATE toggle */}
-                                                            <button
-                                                                type="button"
-                                                                onClick={() => { setIsSliate(!isSliate); setForm(f => ({ ...f, sliate: !isSliate })); }}
-                                                                className={`w-full p-5 rounded-2xl border-2 text-left flex items-center gap-5 transition-all duration-300 cursor-pointer ${isSliate ? "border-primary bg-primary/10 shadow-lg shadow-primary/20" : "border-base-content/10 bg-base-200/40 hover:border-base-content/20"}`}
-                                                            >
-                                                                <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 transition-all ${isSliate ? "bg-primary text-primary-content" : "bg-base-300 text-base-content/40"}`}>
-                                                                    <FaGraduationCap size={20} />
-                                                                </div>
-                                                                <div className="flex-1">
-                                                                    <p className="font-black text-base">I'm a SLIATE / ATI Student</p>
-                                                                    <p className="text-xs opacity-60 mt-0.5">Eligible for exclusive fee reduction</p>
-                                                                </div>
-                                                                <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all ${isSliate ? "border-primary bg-primary" : "border-base-content/20"}`}>
-                                                                    {isSliate && <FaCheckCircle className="text-primary-content" size={12} />}
-                                                                </div>
-                                                            </button>
-
-                                                            {/* ATI location picker */}
-                                                            <AnimatePresence>
-                                                                {isSliate && (
-                                                                    <motion.div
-                                                                        initial={{ opacity: 0, height: 0, marginTop: 0 }}
-                                                                        animate={{ opacity: 1, height: "auto", marginTop: 8 }}
-                                                                        exit={{ opacity: 0, height: 0, marginTop: 0 }}
-                                                                        className="overflow-hidden"
-                                                                    >
-                                                                        <FloatingInput
-                                                                            label="ATI / Campus Location"
-                                                                            name="atiLocation"
-                                                                            type="text"
-                                                                            icon={FaGraduationCap}
-                                                                            form={form}
-                                                                            focused={focused}
-                                                                            handleChange={handleChange}
-                                                                            setFocused={setFocused}
-                                                                        />
-                                                                    </motion.div>
-                                                                )}
-                                                            </AnimatePresence>
+                                                            <FloatingInput
+                                                                label="ATI / Campus Location (Optional)"
+                                                                name="atiLocation"
+                                                                type="text"
+                                                                icon={FaGraduationCap}
+                                                                form={form}
+                                                                focused={focused}
+                                                                handleChange={handleChange}
+                                                                setFocused={setFocused}
+                                                            />
 
                                                             {/* Review summary */}
                                                             <div className="bg-base-200/60 rounded-2xl p-5 border border-base-content/5 space-y-3">
