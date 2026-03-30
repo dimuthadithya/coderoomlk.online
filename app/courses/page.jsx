@@ -62,15 +62,7 @@ export default function CourseRegistration() {
     };
     const handleBack = () => { if (step > 0) setStep(s => s - 1); };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        
-        // If user hits 'Enter' on early steps, just go to the next step, don't submit!
-        if (step < STEPS.length - 1) {
-            handleNext();
-            return;
-        }
-
+    const handleSubmit = async () => {
         setLoading(true);
         setError(null);
         try {
@@ -398,7 +390,7 @@ export default function CourseRegistration() {
                                             </div>
 
                                             {/* Step Content — Animated */}
-                                            <form ref={formRef} onSubmit={handleSubmit}>
+                                            <form ref={formRef} onSubmit={(e) => e.preventDefault()}>
                                                 <AnimatePresence mode="wait" custom={step}>
                                                     {step === 0 && (
                                                         <motion.div
@@ -500,8 +492,12 @@ export default function CourseRegistration() {
                                                             </button>
                                                         ) : (
                                                             <button
-                                                                type="submit"
+                                                                type="button"
                                                                 disabled={loading}
+                                                                onClick={() => {
+                                                                    if (formRef.current && !formRef.current.reportValidity()) return;
+                                                                    handleSubmit();
+                                                                }}
                                                                 className="btn btn-primary btn-lg rounded-2xl px-10 gap-2 font-black shadow-xl shadow-primary/25 hover:scale-[1.03] transition-all ml-auto disabled:opacity-60 disabled:scale-100"
                                                             >
                                                                 {loading ? (
