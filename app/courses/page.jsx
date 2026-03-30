@@ -1,5 +1,7 @@
 "use client";
 import React, { useState } from 'react';
+import { db } from "@/lib/firebase";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Testimonials from "@/components/Testimonials"; // Reusing success stories
@@ -8,8 +10,6 @@ import { FaCalendarAlt, FaClock, FaVideo, FaChalkboardTeacher, FaCheckCircle, Fa
 import courseData from "@/data/courses/fullstackEngineering.json";
 
 const STEPS = ["Personal Info", "Contact", "Enrollment"];
-
-
 
 
 function FloatingInput({ label, name, type = "text", icon: Icon, required, form, focused, handleChange, setFocused }) {
@@ -44,6 +44,8 @@ export default function CourseRegistration() {
     const [isSliate, setIsSliate] = useState(false);
     const [step, setStep] = useState(0);
     const [submitted, setSubmitted] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
     const [form, setForm] = useState({
         firstName: "", lastName: "", email: "", whatsapp: "", sliate: false, atiLocation: ""
     });
@@ -57,7 +59,30 @@ export default function CourseRegistration() {
 
     const handleNext = () => { if (step < STEPS.length - 1) setStep(s => s + 1); };
     const handleBack = () => { if (step > 0) setStep(s => s - 1); };
-    const handleSubmit = (e) => { e.preventDefault(); setSubmitted(true); };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+        setError(null);
+        try {
+            await addDoc(collection(db, "registrations"), {
+                firstName: form.firstName.trim(),
+                lastName: form.lastName.trim(),
+                email: form.email.trim().toLowerCase(),
+                whatsapp: form.whatsapp.trim(),
+                isSliate: isSliate,
+                atiLocation: isSliate ? form.atiLocation.trim() : null,
+                batch: "Batch 03",
+                registeredAt: serverTimestamp(),
+            });
+            setSubmitted(true);
+        } catch (err) {
+            console.error("Firestore write failed:", err);
+            setError("Something went wrong. Please try again.");
+        } finally {
+            setLoading(false);
+        }
+    };
 
 
     return (
@@ -474,31 +499,53 @@ export default function CourseRegistration() {
                                                 </AnimatePresence>
 
                                                 {/* Navigation Buttons */}
-                                                <div className={`flex items-center mt-10 gap-4 ${step > 0 ? "justify-between" : "justify-end"}`}>
-                                                    {step > 0 && (
-                                                        <button
-                                                            type="button"
-                                                            onClick={handleBack}
-                                                            className="btn btn-ghost rounded-2xl gap-2 font-bold hover:bg-base-200 transition-all"
+                                                <div className="mt-10 space-y-4">
+                                                    <div className={`flex items-center gap-4 ${step > 0 ? "justify-between" : "justify-end"}`}>
+                                                        {step > 0 && (
+                                                            <button
+                                                                type="button"
+                                                                onClick={handleBack}
+                                                                disabled={loading}
+                                                                className="btn btn-ghost rounded-2xl gap-2 font-bold hover:bg-base-200 transition-all disabled:opacity-40"
+                                                            >
+                                                                <FaArrowLeft size={14} /> Back
+                                                            </button>
+                                                        )}
+                                                        {step < STEPS.length - 1 ? (
+                                                            <button
+                                                                type="button"
+                                                                onClick={handleNext}
+                                                                className="btn btn-primary rounded-2xl px-8 gap-2 font-black shadow-lg shadow-primary/20 hover:scale-[1.03] transition-all ml-auto"
+                                                            >
+                                                                Continue <FaArrowRight size={14} />
+                                                            </button>
+                                                        ) : (
+                                                            <button
+                                                                type="submit"
+                                                                disabled={loading}
+                                                                className="btn btn-primary btn-lg rounded-2xl px-10 gap-2 font-black shadow-xl shadow-primary/25 hover:scale-[1.03] transition-all ml-auto disabled:opacity-60 disabled:scale-100"
+                                                            >
+                                                                {loading ? (
+                                                                    <>
+                                                                        <span className="loading loading-spinner loading-sm"></span>
+                                                                        Submitting…
+                                                                    </>
+                                                                ) : (
+                                                                    <>Submit Registration <FaCheckCircle size={16} /></>
+                                                                )}
+                                                            </button>
+                                                        )}
+                                                    </div>
+
+                                                    {/* Error message */}
+                                                    {error && (
+                                                        <motion.div
+                                                            initial={{ opacity: 0, y: -8 }}
+                                                            animate={{ opacity: 1, y: 0 }}
+                                                            className="flex items-center gap-3 bg-error/10 border border-error/30 text-error rounded-2xl px-5 py-3 text-sm font-semibold"
                                                         >
-                                                            <FaArrowLeft size={14} /> Back
-                                                        </button>
-                                                    )}
-                                                    {step < STEPS.length - 1 ? (
-                                                        <button
-                                                            type="button"
-                                                            onClick={handleNext}
-                                                            className="btn btn-primary rounded-2xl px-8 gap-2 font-black shadow-lg shadow-primary/20 hover:scale-[1.03] transition-all ml-auto"
-                                                        >
-                                                            Continue <FaArrowRight size={14} />
-                                                        </button>
-                                                    ) : (
-                                                        <button
-                                                            type="submit"
-                                                            className="btn btn-primary btn-lg rounded-2xl px-10 gap-2 font-black shadow-xl shadow-primary/25 hover:scale-[1.03] transition-all ml-auto"
-                                                        >
-                                                            Submit Registration <FaCheckCircle size={16} />
-                                                        </button>
+                                                            <span className="shrink-0">⚠</span> {error}
+                                                        </motion.div>
                                                     )}
                                                 </div>
                                             </form>
