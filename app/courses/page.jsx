@@ -9,7 +9,8 @@ import courseData from "@/data/courses/fullstackEngineering.json";
 
 const STEPS = ["Personal Info", "Contact", "Enrollment"];
 
-const ATI_LOCATIONS = ["ATI Kegalle", "ATI Kandy", "ATI Kurunegala", "ATI Dehiwala", "ATI Colombo", "Other"];
+
+
 
 function FloatingInput({ label, name, type = "text", icon: Icon, required, form, focused, handleChange, setFocused }) {
     return (
@@ -440,22 +441,16 @@ export default function CourseRegistration() {
                                                                         exit={{ opacity: 0, height: 0, marginTop: 0 }}
                                                                         className="overflow-hidden"
                                                                     >
-                                                                        <div className="relative">
-                                                                            <div className="absolute left-4 top-1/2 -translate-y-1/2 text-primary pointer-events-none">
-                                                                                <FaGraduationCap size={15} />
-                                                                            </div>
-                                                                            <select
-                                                                                name="atiLocation"
-                                                                                value={form.atiLocation}
-                                                                                onChange={handleChange}
-                                                                                className="w-full pl-10 pr-4 py-4 bg-base-200/50 border border-base-content/10 rounded-2xl text-base-content outline-none focus:border-primary focus:bg-base-100/60 transition-all duration-300 appearance-none font-medium"
-                                                                            >
-                                                                                <option value="" disabled>Select your ATI location…</option>
-                                                                                {ATI_LOCATIONS.map(loc => (
-                                                                                    <option key={loc} value={loc}>{loc}</option>
-                                                                                ))}
-                                                                            </select>
-                                                                        </div>
+                                                                        <FloatingInput
+                                                                            label="ATI / Campus Location"
+                                                                            name="atiLocation"
+                                                                            type="text"
+                                                                            icon={FaGraduationCap}
+                                                                            form={form}
+                                                                            focused={focused}
+                                                                            handleChange={handleChange}
+                                                                            setFocused={setFocused}
+                                                                        />
                                                                     </motion.div>
                                                                 )}
                                                             </AnimatePresence>
