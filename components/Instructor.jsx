@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaTwitter, FaAward, FaCode, FaChalkboardTeacher, FaMedium, FaYoutube, FaGraduationCap } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaTwitter, FaAward, FaCode, FaChalkboardTeacher, FaMedium, FaYoutube, FaGraduationCap, FaGlobe } from "react-icons/fa";
 import instructorData from "@/data/instructor.json";
 
 // Map strings from JSON to React Components
@@ -12,7 +12,8 @@ const iconMap = {
   linkedin: FaLinkedin,
   twitter: FaTwitter,
   medium: FaMedium,
-  youtube: FaYoutube
+  youtube: FaYoutube,
+  portfolio: FaGlobe
 };
 
 export default function Instructor() {
@@ -84,9 +85,15 @@ export default function Instructor() {
             <p className="text-xl text-base-content/70 mb-6 leading-relaxed">
               "{bio}"
             </p>
-            <p className="text-base-content/60 mb-8">
+            <p className="text-base-content/60 mb-6">
               {about}
             </p>
+            <div className="mb-8">
+              <span className="opacity-80">Check out my portfolio: </span>
+              <a href="https://www.dimuthadithya.site/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-bold">
+                www.dimuthadithya.site
+              </a>
+            </div>
 
             {/* Stats */}
             <div className="grid grid-cols-3 gap-4 mb-8">

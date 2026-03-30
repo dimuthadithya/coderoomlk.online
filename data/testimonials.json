@@ -193,5 +193,21 @@
     "course": "Exam Help Session (Web Design)",
     "university": "SLIATE Kegalle - 2025 Batch",
     "verified": true
+  },
+  {
+    "name": "Sachintha Thilakarathna",
+    "github": "Sachintha-Thilakarathna",
+    "text": "I started coding because of his teaching style. He simplifies complex theories so anyone can understand.",
+    "course": "Modern Full-Stack Web Engineering",
+    "university": "SLIATE Kegalle - 2324 Batch",
+    "verified": true
+  },
+  {
+    "name": "H.W.R.S. Bandara",
+    "github": "RansikaSeniya",
+    "text": "The sessions are incredibly valuable. I learned things I never knew despite following other courses before.",
+    "course": "Modern Full-Stack Web Engineering",
+    "university": "SLIATE Kegalle - 2324 Batch",
+    "verified": true
   }
 ]

@@ -1,0 +1,167 @@
+{
+    "courseTitle": "Modern Web Development",
+    "subtitle": "Master the Art of Building Scalable, Real-Time Web Applications from Scratch.",
+    "overview": "Stop learning outdated theories. This course is a 100% project-based deep dive into the modern web ecosystem. You will start with the fundamentals of structure and style and end by deploying a live, database-driven application using Google Firebase.",
+    "year": 2026,
+    "duration": "12 Weeks",
+    "mode": "Live via Zoom + Recorded",
+    "focus": "Full-Stack Web Engineering",
+    "targetAudience": "Students & Beginners",
+    "outcomes": [
+        "Build a Premium Personal Portfolio with Tailwind",
+        "Develop a Real-Time Task Manager with Firestore",
+        "Create a Secure Member Dashboard with Auth",
+        "Deploy a live database-driven web application"
+    ],
+    "projects": [
+        {
+            "title": "A Premium Personal Portfolio",
+            "description": "Built with Tailwind CSS and hosted on Firebase."
+        },
+        {
+            "title": "A Real-Time Task Manager",
+            "description": "A JS-driven app using Firebase Firestore for instant data syncing."
+        },
+        {
+            "title": "Secure Member Dashboard",
+            "description": "A full-stack app featuring User Authentication (Login/Signup) via Firebase Auth."
+        }
+    ],
+    "whyJoin": [
+        {
+            "title": "Industry-Grade Mentorship",
+            "description": "Learn directly from Dimuth Adithya, a Full-Stack Developer with 6+ years of experience."
+        },
+        {
+            "title": "1:1 Code Reviews",
+            "description": "We don't just look at your results; we review your code line-by-line to ensure you're writing clean, professional scripts."
+        },
+        {
+            "title": "Zero-Fluff Curriculum",
+            "description": "We skip the focus on boring history and go straight to what the industry actually uses in 2026."
+        },
+        {
+            "title": "Hiring Preparation",
+            "description": "Access to mock interviews, LinkedIn optimization, and resume reviews tailored for the Sri Lankan and Global tech markets."
+        }
+    ],
+    "whoIsThisFor": [
+        "SLIATE & University Students looking to ace their web projects and exams.",
+        "Beginners who want a structured path into the IT industry.",
+        "Designers who want to learn how to turn their Figma files into functional code."
+    ],
+    "logistics": {
+        "duration": "12 Weeks",
+        "mode": "Live via Zoom + Recorded Sessions",
+        "time": "Weekend/Evening Classes",
+        "location": "Online (with physical support available in Kegalle)"
+    },
+    "modules": [
+        {
+            "module": 1,
+            "month": "Weeks 1-2",
+            "title": "Foundations: Semantic Structure & SEO",
+            "topics": [
+                "HTML5 Structure",
+                "Modern Web Standards",
+                "Semantic Tags & Layouts",
+                "SEO Fundamentals"
+            ],
+            "tools": [
+                "HTML5",
+                "VS Code",
+                "Browser DevTools"
+            ],
+            "icons": ["html", "vscode", "github"],
+            "project": "Semantic Web Outline"
+        },
+        {
+            "module": 2,
+            "month": "Weeks 3-4",
+            "title": "Styling: Responsive UI & Design Systems",
+            "topics": [
+                "CSS3 Selectors & Box Model",
+                "Flexbox Layouts",
+                "CSS Grid Architecture",
+                "Responsive UI Principles"
+            ],
+            "tools": [
+                "CSS3",
+                "Figma (Inspection)"
+            ],
+            "icons": ["css", "sass", "figma"],
+            "project": "Responsive Layout Implementation"
+        },
+        {
+            "module": 3,
+            "month": "Weeks 5-6",
+            "title": "Modern CSS: Rapid UI Development",
+            "topics": [
+                "Tailwind CSS Utility Classes",
+                "Customizing Tailwind Config",
+                "Bootstrap 5 Components",
+                "Rapid Prototyping"
+            ],
+            "tools": [
+                "Tailwind CSS",
+                "Bootstrap 5",
+                "Node.js/npm"
+            ],
+            "icons": ["tailwind", "bootstrap", "npm"],
+            "project": "Premium Personal Portfolio"
+        },
+        {
+            "module": 4,
+            "month": "Weeks 7-8",
+            "title": "Logic: Programming Foundations",
+            "topics": [
+                "JavaScript (ES6+) basics",
+                "Functions, Loops, Arrays",
+                "DOM Manipulation in depth",
+                "Event Listeners"
+            ],
+            "tools": [
+                "JavaScript",
+                "Developer Console"
+            ],
+            "icons": ["js", "vscode", "bash"],
+            "project": "Interactive Frontend Application"
+        },
+        {
+            "module": 5,
+            "month": "Weeks 9-10",
+            "title": "Backend: Serverless Architecture",
+            "topics": [
+                "Firebase Initialization",
+                "Cloud Firestore (NoSQL)",
+                "Firebase Authentication (Email/Google)",
+                "CRUD Operations from JS"
+            ],
+            "tools": [
+                "Firebase Console",
+                "Firestore",
+                "Firebase Auth"
+            ],
+            "icons": ["firebase", "nodejs"],
+            "project": "Real-Time Task Manager & Dashboards"
+        },
+        {
+            "module": 6,
+            "month": "Weeks 11-12",
+            "title": "Deployment: CI/CD & Version Control",
+            "topics": [
+                "Git Workflow & GitHub basics",
+                "Committing and Branching",
+                "Firebase CLI hosting integration",
+                "Live Deployments"
+            ],
+            "tools": [
+                "Git",
+                "GitHub",
+                "Firebase CLI"
+            ],
+            "icons": ["git", "github", "firebase", "bash"],
+            "project": "Final Live Deployed Project"
+        }
+    ]
+}

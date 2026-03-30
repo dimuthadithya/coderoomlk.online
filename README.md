@@ -87,4 +87,4 @@ The project uses **DaisyUI 5**.
 
 ---
 
-**Maintained by Dimuth Adithya for CodeRoom.Online**
+**Maintained by [Dimuth Adithya](https://www.dimuthadithya.site/) for CodeRoom.Online**

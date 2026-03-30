@@ -9,6 +9,7 @@ import {
   FaHeart,
   FaWhatsapp,
   FaMedium,
+  FaGlobe,
 } from 'react-icons/fa';
 
 export default function Footer() {
@@ -49,6 +50,7 @@ export default function Footer() {
                 href: 'https://www.youtube.com/channel/UCUwhddEzMtZyjnEGcBOcrGA',
               },
               { Icon: FaTwitter, href: 'https://twitter.com/dimuthx353' },
+              { Icon: FaGlobe, href: 'https://www.dimuthadithya.site/' },
             ].map((item, i) => (
               <a
                 key={i}
@@ -165,8 +167,11 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className='max-w-7xl mx-auto px-4 pt-8 border-t border-base-content/5 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-base-content/40'>
-        <p>© {currentYear} CodeRoom.Online. All rights reserved.</p>
-        <div className='flex gap-6'>
+        <div className="flex flex-col items-center md:items-start gap-1">
+            <p>© {currentYear} CodeRoom.Online. All rights reserved.</p>
+            <p>Built with ❤️ by <a href="https://www.dimuthadithya.site/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors hover:underline">Dimuth Adithya</a></p>
+        </div>
+        <div className='flex gap-6 items-center'>
           <a href='#' className='hover:text-base-content/80'>
             Privacy Policy
           </a>

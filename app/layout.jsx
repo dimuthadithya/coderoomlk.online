@@ -35,7 +35,7 @@ export const metadata = {
     'Programming Mentorship',
     'SLIATE',
   ],
-  authors: [{ name: 'Dimuth Adithya' }],
+  authors: [{ name: 'Dimuth Adithya', url: 'https://www.dimuthadithya.site/' }],
   creator: 'Dimuth Adithya',
   robots: {
     index: true,

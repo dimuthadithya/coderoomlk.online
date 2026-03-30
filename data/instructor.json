@@ -12,7 +12,7 @@
     "batch": "2022 Batch"
   },
   "bio": "git commit -m \"learning everyday\" ",
-  "about": "Based in Kegalle, I am passionate about bridging the gap between theory and industry-grade application. Check out my work at dimuthadithya.me",
+  "about": "Based in Kegalle, I am passionate about bridging the gap between theory and industry-grade application.",
   "stats": [
     {
       "label": "Experience",
@@ -58,6 +58,10 @@
     {
       "platform": "twitter",
       "url": "https://twitter.com/dimuthx353"
+    },
+    {
+      "platform": "portfolio",
+      "url": "https://www.dimuthadithya.site/"
     }
   ]
 }
