@@ -31,7 +31,6 @@ export default function Navbar() {
   const navLinks = [
     { href: '/', label: 'Home' },
     { href: '/courses', label: 'Courses' },
-    { href: '/exam-help', label: 'Exam Help' },
     { href: '/#testimonials', label: 'Stories' },
     { href: '/contact', label: 'Contact' },
   ];
