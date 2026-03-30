@@ -317,27 +317,7 @@ export default function CourseRegistration() {
                 </div>
             </section>
 
-            {/* 4. KEY TAKEAWAYS */}
-            <section className="py-24 bg-base-200/50 border-y border-base-content/5 relative overflow-hidden">
-                <div className="max-w-5xl mx-auto px-4 relative z-10">
-                    <div className="glass-card p-10 md:p-14 rounded-3xl border border-primary/20 bg-primary/5">
-                        <div className="text-center mb-10">
-                            <h3 className="text-3xl md:text-4xl font-black mb-4 flex items-center justify-center gap-4">
-                                <FaTools className="text-primary" /> Key Takeaways
-                            </h3>
-                            <p className="opacity-70 text-lg">Everything you will achieve by the end of this program.</p>
-                        </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {courseData.outcomes.map((outcome, i) => (
-                                <div key={i} className="flex items-start gap-3 bg-base-100/50 p-4 rounded-2xl">
-                                    <FaCheckCircle className="text-success mt-1 shrink-0" size={16} />
-                                    <span className="text-sm opacity-90 leading-relaxed font-bold">{outcome}</span>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            </section>
+
 
             {/* 3. SUCCESS STORIES (Untouched Component) */}
             <Testimonials />
