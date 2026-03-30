@@ -54,14 +54,12 @@ export default function Navbar() {
                 {' '}
                 New Batch Enrolling Now!
               </span>
-              <a
-                href='https://forms.gle/TdmiUVUeHpajcLgV7'
-                target='_blank'
-                rel='noopener noreferrer'
+              <Link
+                href='/courses'
                 className='btn btn-xs bg-base-100 text-primary border-none hover:bg-base-200'
               >
                 Register Now
-              </a>
+              </Link>
             </div>
           </motion.div>
         )}
