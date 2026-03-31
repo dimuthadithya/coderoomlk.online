@@ -56,9 +56,9 @@ export default function CourseRegistration() {
         setForm(prev => ({ ...prev, [name]: type === "checkbox" ? checked : value }));
     };
 
-    const handleNext = () => { 
+    const handleNext = () => {
         if (formRef.current && !formRef.current.reportValidity()) return;
-        if (step < STEPS.length - 1) setStep(s => s + 1); 
+        if (step < STEPS.length - 1) setStep(s => s + 1);
     };
     const handleBack = () => { if (step > 0) setStep(s => s - 1); };
 
@@ -259,7 +259,7 @@ export default function CourseRegistration() {
                                     </span>
                                     <span className="text-error text-xs font-black uppercase tracking-widest">Enrolling Now</span>
                                 </div>
-                                <p className="text-2xl font-black mb-1">Batch 03 — April 2025</p>
+                                <p className="text-2xl font-black mb-1">Batch 03 — April 2026</p>
                                 <p className="text-sm opacity-60 font-medium">Starts <strong className="text-base-content/90">April 04</strong> · Sat & Sun · 8 AM</p>
                                 <div className="mt-5 flex items-center gap-3">
                                     <div className="flex -space-x-3">
