@@ -14,7 +14,7 @@ export const metadata = {
     description:
       'Fill the form to request help with Web Design topics and past papers.',
     url: 'https://coderoomlk.online/exam-help/web-design',
-    siteName: 'CodeRoom.Online',
+    siteName: 'CodeRoomLk',
     images: [
       {
         url: '/images/logo.png',

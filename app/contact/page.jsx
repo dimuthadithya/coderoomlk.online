@@ -3,21 +3,21 @@ import Footer from '@/components/Footer';
 import Contact from '@/components/Contact';
 
 export const metadata = {
-  title: 'Contact Us - CodeRoom.Online',
+  title: 'Contact Us - CodeRoomLk',
   description:
     'Get in touch with our team for questions, support, or custom training.',
   openGraph: {
-    title: 'Contact Us - CodeRoom.Online',
+    title: 'Contact Us - CodeRoomLk',
     description:
       'Get in touch with our team for questions, support, or custom training.',
     url: 'https:coderoomlk.online/contact',
-    siteName: 'CodeRoom.Online',
+    siteName: 'CodeRoomLk',
     images: [
       {
         url: '/images/logo.png',
         width: 1200,
         height: 630,
-        alt: 'Contact CodeRoom.Online',
+        alt: 'Contact CodeRoomLk',
       },
     ],
     locale: 'en_US',

@@ -29,7 +29,7 @@ export default function Footer() {
             />
             <span className='text-2xl font-black tracking-tight'>
               <span className='gradient-text'>CodeRoom</span>
-              <span className='text-accent'>.Online</span>
+              <span className='text-accent'>Lk</span>
             </span>
           </Link>
           <p className='text-base-content/60 leading-relaxed max-w-xs'>
@@ -129,10 +129,10 @@ export default function Footer() {
           <h6 className='font-bold text-lg mb-6'>Get in Touch</h6>
           <nav className='flex flex-col gap-4 text-base-content/60'>
             <a
-              href='mailto:admin@coderoomlk.online'
+              href='mailto:contactcoderoomlk@gmail.com'
               className='hover:text-primary transition-colors'
             >
-              admin@coderoomlk.online
+              contactcoderoomlk@gmail.com
             </a>
             <a
               href='tel:+94785854468'
@@ -168,48 +168,51 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div className='max-w-7xl mx-auto px-4 pt-8 border-t border-base-content/5 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-base-content/40'>
         <div className="flex flex-col items-center md:items-start gap-1">
-            <p>© {currentYear} CodeRoom.Online. All rights reserved.</p>
+            <p>© {currentYear} CodeRoomLk. All rights reserved.</p>
             <p>Built with ❤️ by <a href="https://www.dimuthadithya.site/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors hover:underline">Dimuth Adithya</a></p>
         </div>
-        <div className='flex gap-6 items-center'>
-          <a href='#' className='hover:text-base-content/80'>
+        <div className='flex flex-wrap justify-center md:justify-end gap-x-6 gap-y-2 items-center'>
+          <Link href='/refund-policy' className='hover:text-base-content/80 transition-colors'>
+            Refund Policy
+          </Link>
+          <Link href='/privacy-policy' className='hover:text-base-content/80 transition-colors'>
             Privacy Policy
-          </a>
-          <a href='#' className='hover:text-base-content/80'>
+          </Link>
+          <Link href='/terms-and-conditions' className='hover:text-base-content/80 transition-colors'>
             Terms of Service
-            {/* QR Code Modal */}
-            {showQR && (
+          </Link>
+          {/* QR Code Modal */}
+          {showQR && (
+            <div
+              className='fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4'
+              onClick={() => setShowQR(false)}
+            >
               <div
-                className='fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4'
-                onClick={() => setShowQR(false)}
+                className='bg-white p-4 rounded-2xl max-w-md w-full relative animate-in fade-in zoom-in duration-200'
+                onClick={(e) => e.stopPropagation()}
               >
-                <div
-                  className='bg-white p-4 rounded-2xl max-w-md w-full relative animate-in fade-in zoom-in duration-200'
-                  onClick={(e) => e.stopPropagation()}
+                <button
+                  onClick={() => setShowQR(false)}
+                  className='absolute top-2 right-2 btn btn-circle btn-sm btn-ghost text-black'
                 >
-                  <button
-                    onClick={() => setShowQR(false)}
-                    className='absolute top-2 right-2 btn btn-circle btn-sm btn-ghost text-black'
-                  >
-                    ✕
-                  </button>
-                  <h3 className='text-center text-black font-bold text-xl mb-4'>
-                    Join Community
-                  </h3>
-                  <div className='w-full bg-white flex items-center justify-center overflow-hidden'>
-                    <img
-                      src='/images/qr.png'
-                      alt='WhatsApp Community QR Large'
-                      className='max-w-full max-h-[60vh] w-auto h-auto object-contain'
-                    />
-                  </div>
-                  <p className='text-center text-gray-500 mt-4 text-sm'>
-                    Scan with WhatsApp to join
-                  </p>
+                  ✕
+                </button>
+                <h3 className='text-center text-black font-bold text-xl mb-4'>
+                  Join Community
+                </h3>
+                <div className='w-full bg-white flex items-center justify-center overflow-hidden'>
+                  <img
+                    src='/images/qr.png'
+                    alt='WhatsApp Community QR Large'
+                    className='max-w-full max-h-[60vh] w-auto h-auto object-contain'
+                  />
                 </div>
+                <p className='text-center text-gray-500 mt-4 text-sm'>
+                  Scan with WhatsApp to join
+                </p>
               </div>
-            )}
-          </a>
+            </div>
+          )}
         </div>
       </div>
     </footer>

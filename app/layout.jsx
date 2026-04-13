@@ -17,8 +17,8 @@ const geistMono = Geist_Mono({
 export const metadata = {
   metadataBase: new URL('https://coderoomlk.online'),
   title: {
-    default: 'CodeRoom.Online | Master Full Stack Development',
-    template: '%s | CodeRoom.Online',
+    default: 'CodeRoomLk | Master Full Stack Development',
+    template: '%s | CodeRoomLk',
   },
   other: {
     'og:logo': 'https://coderoomlk.online/images/logo.png',
@@ -52,22 +52,22 @@ export const metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://coderoomlk.online',
-    title: 'CodeRoom.Online | Master Full Stack Development',
+    title: 'CodeRoomLk | Master Full Stack Development',
     description:
       'Project-based learning, 1:1 mentorship, and career guidance for aspiring developers in Sri Lanka.',
-    siteName: 'CodeRoom.Online',
+    siteName: 'CodeRoomLk',
     images: [
       {
         url: '/images/logo.png',
         width: 1200,
         height: 630,
-        alt: 'CodeRoom.Online Learning Platform',
+        alt: 'CodeRoomLk Learning Platform',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'CodeRoom.Online | Master Full Stack Development',
+    title: 'CodeRoomLk | Master Full Stack Development',
     description:
       'Join the next generation of developers. Specialized training in MERN Stack and Next.js.',
     creator: '@dimuthx353',

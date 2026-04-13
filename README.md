@@ -1,8 +1,8 @@
-# CodeRoom.Online - Premium Coding Mentorship Platform
+# CodeRoomLk - Premium Coding Mentorship Platform
 
 ## 🚀 Project Overview
 
-A high-performance, visually stunning web platform for **CodeRoom.Online**, a premium coding mentorship program in Sri Lanka. Built with **Next.js 16**, **Tailwind CSS v4**, and **DaisyUI 5**, focusing on engaging UX, glassmorphism, and data-driven content.
+A high-performance, visually stunning web platform for **CodeRoomLk**, a premium coding mentorship program in Sri Lanka. Built with **Next.js 16**, **Tailwind CSS v4**, and **DaisyUI 5**, focusing on engaging UX, glassmorphism, and data-driven content.
 
 ## ✨ Key Features
 
@@ -87,4 +87,4 @@ The project uses **DaisyUI 5**.
 
 ---
 
-**Maintained by [Dimuth Adithya](https://www.dimuthadithya.site/) for CodeRoom.Online**
+**Maintained by [Dimuth Adithya](https://www.dimuthadithya.site/) for CodeRoomLk**

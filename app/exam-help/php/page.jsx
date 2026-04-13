@@ -10,7 +10,7 @@ export const metadata = {
     title: 'PHP Exam Help - CodeRoom',
     description: 'Join our live PHP exam help session for 2nd year students.',
     url: 'https:coderoomlk.online/exam-help/php',
-    siteName: 'CodeRoom.Online',
+    siteName: 'CodeRoomLk',
     images: [
       {
         url: '/images/logo.png',
